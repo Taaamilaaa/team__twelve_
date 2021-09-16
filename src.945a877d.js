@@ -78,4 +78,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"handlebars/dist/handlebars.runtime":"pAws"}],"Focm":[function(require,module,exports) {
 "use strict";var e=i(require("tui-pagination"));require("tui-pagination/dist/tui-pagination.css"),require("./sass/main.scss");var t=i(require("./js/api-service")),n=i(require("./templates/card-image.hbs"));function i(e){return e&&e.__esModule?e:{default:e}}const r={searchForm:document.querySelector("#js-input-country"),container:document.querySelector(".container-list")},a=new t.default;function s(e){r.container.insertAdjacentHTML("beforeend",(0,n.default)(e))}a.fetchApi().then(e=>{console.log(...e.data._embedded.events),s(e.data._embedded.events)});
 },{"tui-pagination":"jPMh","tui-pagination/dist/tui-pagination.css":"UYQs","./sass/main.scss":"clu1","./js/api-service":"hC31","./templates/card-image.hbs":"AXhu"}]},{},["Focm"], null)
-//# sourceMappingURL=/team__twelve_/src.df4f7834.js.map
+//# sourceMappingURL=/team__twelve_/src.945a877d.js.map
