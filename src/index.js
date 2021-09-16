@@ -1,23 +1,23 @@
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 import './sass/main.scss';
 import './js/api-service';
 import ApiService from './js/api-service';
 import cardTemplate from './templates/card-image.hbs';
-<<<<<<< Updated upstream
-=======
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 import { locale, page, searchQuery } from './js/eventSearch';
->>>>>>> Stashed changes
+
+
 
 
 const refs = {
 
   searchForm: document.querySelector('#js-input-country'),
   container: document.querySelector('.container-list'),
-  btnNext: document.querySelector('.tui-page-btn tui-next')
+  btnNext: document.querySelector('.tui-page-btn tui-next'),
+
 };
 
-const apiService = new ApiService();
+const apiService = new ApiService(locale, page, searchQuery);
 
 apiService.fetchApi().then(res => {
   console.log(res.data);
