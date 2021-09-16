@@ -22,5 +22,11 @@ export default class ApiService {
         return axios.get(url);
         
     };
+    resetPage() {
+        this.page = 0;
+    }
+    incrementPage() {
+        this.page += 1;
+    }
 
 }
