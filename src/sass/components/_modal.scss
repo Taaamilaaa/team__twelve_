@@ -6,15 +6,18 @@
   width: 272px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 414px;
   @media screen and (min-width: 768px) {
     height: 831px;
     width: 595px;
     border-radius: 300px 0px;
+    margin-top: 161px;
   }
   @media screen and (min-width: 1280px) {
     height: 1023px;
     width: 942px;
     border-radius: 300px 0px;
+    margin-top: 201px;
   }
 }
 .flex {
@@ -115,17 +118,15 @@
     top: 30px;
     right: 30px;
   }
-
-  svg {
-    width: 17px;
-    height: 17px;
-    @media screen and (min-width: 1280px) {
-      width: 25px;
-      height: 25px;
-    }
+}
+.svg-close {
+  width: 17px;
+  height: 17px;
+  @media screen and (min-width: 1280px) {
+    width: 25px;
+    height: 25px;
   }
 }
-
 .box-image {
   width: 102px;
   height: 102px;
