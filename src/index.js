@@ -2,7 +2,11 @@ import './sass/main.scss';
 import './js/api-service';
 import ApiService from './js/api-service';
 import cardTemplate from './templates/card-image.hbs';
-import {locale, page, searchQuery} from './js/eventSearch';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import { locale, page, searchQuery } from './js/eventSearch';
+
+
 
 
 const refs = {
