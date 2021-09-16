@@ -20,6 +20,12 @@ export default class ApiService {
         const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
         return axios.get(url);
     };
+    resetPage() {
+        this.page = 0;
+    }
+    incrementPage() {
+        this.page += 1;
+    }
 
 }
 
