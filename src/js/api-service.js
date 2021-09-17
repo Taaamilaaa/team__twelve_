@@ -33,6 +33,14 @@ export default class ApiService {
     set query(newQuery) {
         this.searchQuery = newQuery;
     }
+
+
+    get Page() {
+        return this.searchPage.trim();
+    };
+    set Page(newPage) {
+        this.page = newPage;
+    }
     resetPage() {
         this.page = 0;
     }
