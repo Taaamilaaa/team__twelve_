@@ -2,21 +2,38 @@ import ApiService from './api-service';
 import cardTemplate from '../templates/card-image.hbs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-
+const debounce = require('lodash.debounce');
 const apiService = new ApiService();
-
+// let eventCountry = '';
 const refs = {
+    country: document.querySelector('.dropdown'),
     searchFormCountry: document.querySelector('#js-input-country'),
     container: document.querySelector('.container-list'),
     searchFormEvent: document.querySelector('#js-input-event')
 };
 
-refs.searchFormCountry.addEventListener('input', onSearchCountry)
-
+// refs.searchFormCountry.addEventListener('input', debounce((onSearchCountry), 500));
+refs.country.addEventListener('click', debounce((onSearchCountry), 500))
 function onSearchCountry(event) {
     event.preventDefault();
-    apiService.queryCountry = refs.searchFormCountry.value.toUpperCase()
 
+if (event.target.classList.contains('dropdown__item')) {
+   const eventCountry = event.target.dataset.value;
+   onSearchCountry(eventCountry)
+     }
+    // apiService.queryCountry = refs.searchFormCountry.value.toUpperCase();
+
+  function onSearchCountry(eventCountry){
+    // console.log(eventCountry);
+
+if (refs.searchFormEvent.value) {
+    // console.log(refs.searchFormEvent.value);
+    apiService.query = refs.searchFormEvent.value
+}
+
+refs.searchFormCountry.value = eventCountry;
+
+    apiService.queryCountry = eventCountry;
     apiService.fetchApi().then(res => {
         if (res.data) {
             removeEvents();
@@ -50,10 +67,16 @@ function onSearchCountry(event) {
         const pagination = new Pagination('.tui-pagination', options);
     });
 }
+    
+}
+   
+
+
 
 function renderEvents(event) {
     refs.container.insertAdjacentHTML('beforeend', cardTemplate(event))
 }
+
 function removeEvents() {
-    refs.container.innerHTML = ''
+  refs.container.innerHTML = ''
 }

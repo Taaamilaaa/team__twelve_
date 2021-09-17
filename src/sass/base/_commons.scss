@@ -4,6 +4,10 @@
   box-sizing: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
