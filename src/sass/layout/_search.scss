@@ -37,7 +37,7 @@
   padding-top: 20px;
   margin-top: 20px;
   border-radius: 20px;
-
+  position: absolute;
   // &__item:just(:first-child) {
   //   margin-top: 30px;
   // }
@@ -61,8 +61,8 @@
 
 .search-string__menu.open ul {
   display: block;
+  z-index: 1;
 }
-
 @media screen and (min-width: 320px) {
   .search-string {
     padding-bottom: 25px;
@@ -95,4 +95,8 @@
   // .search-form {
   //   justify-content: center;
   // }
+}
+.dropdown__item {
+  margin-top: 5px;
+  cursor: pointer;
 }
