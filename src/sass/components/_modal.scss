@@ -1,21 +1,26 @@
 .modal {
-  position: relative;
-  background: #fff2fd;
-  border-radius: 150px 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 272px;
   height: 915px;
-  margin-left: auto;
-  margin-right: auto;
+  transform: translate(-50%, -50%);
+  background: #fff2fd;
+  opacity: 1;
 
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  border-radius: 150px 0px;
   @media screen and (min-width: 768px) {
-    height: 831px;
     width: 595px;
+    height: 831px;
+
     border-radius: 300px 0px;
   }
+
   @media screen and (min-width: 1280px) {
+    width: 930px;
     height: 1023px;
-    width: 942px;
-    border-radius: 300px 0px;
   }
 }
 .flex {
@@ -27,24 +32,53 @@
 }
 
 .img-modal {
-  padding-top: 141px;
-  padding-left: 50px;
-  padding-right: 30px;
-  width: 233px;
-  @media screen and (max-width: 767px) {
-    display: none;
+  width: 102px;
+  height: 102px;
+  background-size: 132px 132px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+
+  @media screen and (min-width: 768px) {
+    width: 80px;
+    height: 80px;
+    margin-top: 30px;
   }
   @media screen and (min-width: 1280px) {
-    padding-top: 235px;
-    padding-right: 60px;
-    width: 360px;
+    width: 132px;
+    height: 132px;
+
+    margin-top: 50px;
   }
 }
-//
-.modal__title-list {
-  padding-bottom: 10px;
+
+.img-modal_big {
+  display: none;
+  @media screen and (min-width: 768px) {
+    width: 233px;
+    height: 416px;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 30px;
+  }
   @media screen and (min-width: 1280px) {
-    padding-bottom: 20px;
+    width: 360px;
+    height: 641px;
+    margin-right: 60px;
+  }
+}
+
+.modal__title-list {
+  margin-top: 10px;
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 20px;
   }
 }
 
@@ -55,11 +89,9 @@
   font-size: 20px;
   line-height: 1.2;
   text-align: center;
-  margin-bottom: 5px;
   color: #dc56c5;
   @media screen and (min-width: 768px) {
     text-align: left;
-    margin-bottom: 7px;
   }
   @media screen and (min-width: 1280px) {
     font-size: 24px;
@@ -75,6 +107,7 @@
   margin-right: auto;
   display: block;
   color: #0e0e0e;
+  margin-top: 5px;
   @media screen and (min-width: 768px) {
     text-align: left;
   }
@@ -82,10 +115,81 @@
     font-size: 18px;
   }
 }
+
+.modal__title-button {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: #0e0e0e;
+
+  @media screen and (min-width: 768px) {
+    justify-content: start;
+  }
+}
+
+.button-block {
+  margin-top: 5px;
+}
+
+.button-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  box-sizing: border-box;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 145px;
+  height: 40px;
+  background: #4c00fe;
+  border-radius: 5px;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 10px;
+  }
+}
+
+.button-form__inform {
+  width: 230px;
+  height: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  border: 1px solid #4c00fe;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #4c00fe;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    border: 1px solid #dc56c5;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 45px;
+    width: 255px;
+
+    border: 1px solid #4c00fe;
+  }
+}
+
 .size-description-title {
   width: 243px;
   @media screen and (min-width: 1280px) {
     width: 450px;
+    height: 66px;
   }
 }
 .description-size {
@@ -94,7 +198,6 @@
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: 768px) {
-    margin-left: auto;
     margin-left: 0px;
   }
 }
@@ -110,13 +213,16 @@
 .close-modal {
   position: absolute;
   cursor: pointer;
-  top: 25px;
-  right: 25px;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
   @media screen and (min-width: 1280px) {
     top: 30px;
     right: 30px;
   }
 }
+
 .svg-close {
   width: 17px;
   height: 17px;
@@ -132,79 +238,69 @@
   background-size: 132px 132px;
   background-position: center;
   background-repeat: no-repeat;
-  position: absolute;
+
   border-radius: 100%;
+
   margin-left: auto;
   margin-right: auto;
-  left: 50%;
-  transform: translate(-50%, 75px);
+  margin-top: 60px;
+
   @media screen and (min-width: 768px) {
-    width: 70px;
-    height: 70px;
-    transform: translate(-50%, 25px);
+    width: 80px;
+    height: 80px;
+    margin-top: 30px;
   }
   @media screen and (min-width: 1280px) {
     width: 132px;
     height: 132px;
-    transform: translate(-50%, 62px);
+    margin-top: 50px;
   }
 }
 .modal-container {
-  padding-top: 195px;
+  margin-top: 10px;
   @media screen and (min-width: 768px) {
-    padding-top: 141px;
+    margin-top: 0;
   }
-  @media screen and (min-width: 1280px) {
-    padding-top: 235px;
-  }
-}
-
-.lightbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.lightbox.is-open {
-  opacity: 1;
-  pointer-events: initial;
 }
 
 .lightbox__overlay {
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
 }
 
-.lightbox__content {
-  transform: scale(0.95);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.lightbox.is-open .lightbox__content {
-  transform: scale(1);
-}
 .modal-guts {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-  align-items: center;
+}
+
+.container-modal {
+  display: flex;
   justify-content: center;
-  margin-top: 414px;
-  @media screen and (min-width: 768px) {
-    margin-top: 161px;
-  }
+
+  margin-top: 35px;
+
   @media screen and (min-width: 1280px) {
-    margin-top: 201px;
+    margin-top: 40px;
   }
+}
+
+.modal__title-list-null {
+  margin-top: 0;
+}
+
+.button-block_buy {
+  @media screen and (min-width: 1280px) {
+    margin-top: 20px;
+  }
+}
+
+.button-text {
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.22;
 }
