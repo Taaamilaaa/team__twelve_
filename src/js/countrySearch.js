@@ -2,10 +2,11 @@ import ApiService from './api-service';
 import cardTemplate from '../templates/card-image.hbs';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { number } from 'joi';
+// import { number } from 'joi';
 const debounce = require('lodash.debounce');
 const apiService = new ApiService();
-// let eventCountry = '';
+
+// console.log(number)
 const refs = {
     country: document.querySelector('.dropdown'),
     searchFormCountry: document.querySelector('#js-input-country'),
@@ -17,48 +18,48 @@ refs.country.addEventListener('click', debounce((onSearch), 500));
 
 function onSearch(event) {
     event.preventDefault();
-if (event.target.classList.contains('dropdown__item')) {
-   const eventCountry = event.target.dataset.value;
-   
-   onSearchCountry(eventCountry)
-     }
+    if (event.target.classList.contains('dropdown__item')) {
+        const eventCountry = event.target.dataset.value;
+
+        onSearchCountry(eventCountry)
+    }
 };
 
-function onSearchCountry(eventCountry){
- console.log(eventCountry);
-if (refs.searchFormEvent.value) {
-    apiService.query = refs.searchFormEvent.value
+function onSearchCountry(eventCountry) {
+    console.log(eventCountry);
+    if (refs.searchFormEvent.value) {
+        apiService.query = refs.searchFormEvent.value
+    };
+
+    refs.searchFormCountry.value = eventCountry;
+    apiService.queryCountry = eventCountry;
+    apiService.resetPage();
+    apiServisesRenderTui();
 };
 
-refs.searchFormCountry.value = eventCountry;
-apiService.queryCountry = eventCountry;
-apiService.resetPage();
-apiServisesRenderTui();      
-};
-   
 function renderEvents(event) {
     refs.container.insertAdjacentHTML('beforeend', cardTemplate(event))
 };
 
 function removeEvents() {
-  refs.container.innerHTML = ''
+    refs.container.innerHTML = ''
 };
 async function apiServisesRenderTui() {
     try {
-       await apiService.fetchApi().then(res => {
+        await apiService.fetchApi().then(res => {
 
             if (typeof (res.data._embedded) === 'object') {
-                console.log( 'in promise', typeof (res.data._embedded) );
+                console.log('in promise', typeof (res.data._embedded));
                 removeEvents();
 
                 renderEvents(res.data._embedded.events);
                 let data = res.data.page
                 if (data.totalElements >= 12) {
                     pagination(data);
-                 } 
-        }
+                }
+            }
 
-         });
+        });
 
     } catch (error) {
         console.dir(error.stack);
@@ -66,7 +67,7 @@ async function apiServisesRenderTui() {
 };
 
 export default function pagination(data) {
-    console.log( 'in paginetion', data);
+    console.log('in paginetion', data);
     const options = {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
@@ -91,16 +92,16 @@ export default function pagination(data) {
                 '<span class="tui-ico-ellip">...</span>' +
                 '</a>'
         }
-        
+
     };
     const pagination = new Pagination('.tui-pagination', options);
     pagination.on('afterMove', (event) => {
-        console.log( 'in pagination.on', options);
+        console.log('in pagination.on', options);
         const currentPage = event.page;
         console.log(currentPage);
         apiService.Page = currentPage;
         apiServisesRenderTui();
-   });
+    });
 }
 
 
