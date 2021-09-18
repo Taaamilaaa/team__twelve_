@@ -9,6 +9,18 @@ export default class ApiService {
         this.page = 0;
     };
 
+    fetchApiStart() {
+
+        const searchParams = new URLSearchParams({
+            size: '12',
+            page: this.page,
+            source: "ticketmaster",
+            sort: 'random'
+        })
+        const url = `${BASE_URL}attractions.json?&apikey=${API_KEY}&${searchParams}`;
+        return axios.get(url);
+
+    };
     fetchApi() {
 
         const searchParams = new URLSearchParams({
