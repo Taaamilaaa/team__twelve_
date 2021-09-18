@@ -113,6 +113,7 @@ function logicPagination(data) {
 };
 function hiddenPagination() {
    const paginationContainer = document.querySelector('#pagination');
+   paginationContainer.classList.remove('is-visible-tui');  
    paginationContainer.classList.add('is-hidden-tui');
 };
 function visiblePagination() {
