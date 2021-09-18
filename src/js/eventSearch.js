@@ -28,15 +28,14 @@ async function apiServisesRender () {
   try {
   await apiService.fetchApi().then(res => {
       if (typeof (res.data._embedded) === 'object') {
+        let data = res.data.page;
+        pagination(data);
         removeEvents();
+        logicPagination(data);
         console.log(res.data);
-        renderEvents(res.data._embedded.events);
-        let data = res.data.page
-        if (data.totalElements >= 12) {
-           pagination(data);
-        } else pagination();
-      }
-      
+        renderEvents(res.data._embedded.events);   
+        
+      }     
     });
   } catch (error) {
     
@@ -48,4 +47,25 @@ function renderEvents(event) {
 
 function removeEvents() {
   refs.container.innerHTML = ''
+};
+
+function logicPagination(data) {
+  if (data.totalElements >= 12) {
+      visiblePagination();
+     
+  } else 
+  hiddenPagination();
+  return
+}
+function hiddenPagination() {
+ const paginationContainer = document.querySelector('#pagination');
+ console.log(paginationContainer);
+ paginationContainer.classList.remove('is-visible-tui');
+ paginationContainer.classList.add('is-hidden-tui');
+}
+function visiblePagination() {
+  const paginationContainer = document.querySelector('#pagination');
+  paginationContainer.classList.remove('is-hidden-tui');
+  paginationContainer.classList.add('is-visible-tui');
+  console.log(paginationContainer);
 }
