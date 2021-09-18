@@ -5,7 +5,8 @@ import 'tui-pagination/dist/tui-pagination.css';
 // import { number } from 'joi';
 const debounce = require('lodash.debounce');
 const apiService = new ApiService();
-
+let searchEvent = '';
+let eventCountry = '';
 // console.log(number)
 const refs = {
     country: document.querySelector('.dropdown'),
@@ -14,23 +15,27 @@ const refs = {
     searchFormEvent: document.querySelector('#js-input-event'),
 };
 refs.country.addEventListener('click', debounce((onSearch), 500));
+refs.searchFormEvent.addEventListener('input', debounce ((onSearchEvent),500));
 
+function onSearchEvent(event) {
+    event.preventDefault();
+    if (refs.searchFormEvent.value) {
+         searchEvent = refs.searchFormEvent.value;
+         onSearchCountry()
+      }
+};
 function onSearch(event) {
     event.preventDefault();
     if (event.target.classList.contains('dropdown__item')) {
-        const eventCountry = event.target.dataset.value;
-
-        onSearchCountry(eventCountry)
+        eventCountry = event.target.dataset.value;
+        console.log( event.target.dataset.value);
+        refs.searchFormCountry.value = event.target.dataset.value;
+        onSearchCountry()
     }
 };
 
-function onSearchCountry(eventCountry) {
-    console.log(eventCountry);
-    if (refs.searchFormEvent.value) {
-        apiService.query = refs.searchFormEvent.value
-    };
-
-    refs.searchFormCountry.value = eventCountry;
+function onSearchCountry() {
+    apiService.query = searchEvent;
     apiService.queryCountry = eventCountry;
     apiService.resetPage();
     apiServisesRenderTui();
@@ -48,8 +53,7 @@ async function apiServisesRenderTui() {
         await apiService.fetchApi().then(res => {
 
             if (typeof (res.data._embedded) === 'object') {
-                console.log('in promise', typeof (res.data._embedded));
-                let data = res.data.page
+                 let data = res.data.page
                 pagination(data);
                 removeEvents();
                 logicPagination(data);
@@ -109,12 +113,10 @@ function logicPagination(data) {
 };
 function hiddenPagination() {
    const paginationContainer = document.querySelector('#pagination');
-   console.log(paginationContainer);
    paginationContainer.classList.add('is-hidden-tui');
 };
 function visiblePagination() {
     const paginationContainer = document.querySelector('#pagination');
     paginationContainer.classList.remove('is-hidden-tui');
-    paginationContainer.classList.add('is-visible-tui');
-    console.log(paginationContainer);
+    paginationContainer.classList.add('is-visible-tui');  
 };

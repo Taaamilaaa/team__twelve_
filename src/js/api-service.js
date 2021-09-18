@@ -22,13 +22,16 @@ export default class ApiService {
 
     };
     fetchApi() {
-
+console.log(this.searchQuery);
+console.log(this.countryCode);
+console.log(this.page);
         const searchParams = new URLSearchParams({
             keyword: this.searchQuery,
             size: '12',
             countryCode: this.countryCode,
             page: this.page,
         })
+        
         const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
         return axios.get(url);
 
