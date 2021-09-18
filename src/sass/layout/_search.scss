@@ -1,10 +1,11 @@
 .input-area {
+  position: relative;
+  display: block;
   width: 270px;
   height: 40px;
 
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  /* Note: backdrop-filter has minimal browser support */
 
   border-radius: 20px;
   border-width: 0px;
@@ -18,7 +19,7 @@
 
   text-indent: 30px;
   padding: 0px;
-  color: #ffffff;
+  // color: #ffffff;
 
   &:hover,
   &:focus {
@@ -33,23 +34,59 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 1.25;
-  color: #ffffff;
-  padding-top: 20px;
-  margin-top: 20px;
-  border-radius: 20px;
-  position: absolute;
-  // &__item:just(:first-child) {
-  //   margin-top: 30px;
+  // color: #ffffff;
+  // padding-top: 20px;
+  // margin-top: 20px;
+
+  // &__item {
+  //   margin-top: 5px;
+  //   cursor: pointer;
+  // }
+  // &.open::after {
+  //   transform: translateY(50%) rotate(180deg);
   // }
 }
 
-.search-icon {
-  position: absolute;
-  display: block;
-  top: 100%;
-  transform: translateX(-100%);
+select {
+  color: rgba(255, 255, 255, 0.2);
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // appearance: none;
+  overflow: hidden;
+}
 
-  fill: red;
+// .input-area .dropdown select {
+//   padding: 30px;
+//   overflow: hidden;
+//   // background: url('../image/sprite.svg#icon-polygon-down') no-repeat right;
+// }
+
+select > option {
+  background-color: rgb(54, 53, 53);
+}
+
+.search-icon {
+  &__icon-search {
+    position: absolute;
+    display: block;
+    top: 17%;
+    transform: translateX(1950%);
+  }
+  &__icon-polygon-down {
+    position: absolute;
+    display: block;
+    top: 20%;
+    transform: translateX(1580%);
+  }
+}
+
+.search-string {
+  display: block;
+  position: relative;
+  &__menu {
+    display: block;
+    position: relative;
+  }
 }
 
 .search-string__menu ul {
@@ -67,9 +104,6 @@
   .search-string {
     padding-bottom: 25px;
     text-align: center;
-
-    display: block;
-    position: relative;
   }
 }
 
@@ -92,11 +126,4 @@
   .search-string {
     padding-bottom: 52px;
   }
-  // .search-form {
-  //   justify-content: center;
-  // }
-}
-.dropdown__item {
-  margin-top: 5px;
-  cursor: pointer;
 }

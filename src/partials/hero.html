@@ -4,128 +4,118 @@
     <div class="search">
       <form action="#" class="search-form container list">
         <div class="search-string">
-          <input
-            class="input-area"
-            id="js-input-event"
-            type="text"
-            name="query"
-            autocomplete="off"
-            placeholder="Start searching"
-          />
+          <input class="input-area" id="js-input-event" type="text" name="query" autocomplete="off"
+            placeholder="Start searching" />
           <svg class="search-icon__icon-search" width="12" height="12">
             <use href="./images/sprite.svg#icon-search"></use>
           </svg>
         </div>
+
         <div class="search-string__menu" id="countryMenu">
-          <!-- <div class="select">
-            <select class="input-area" id="js-select-country" type="text" name="query" autocomplete="off"
-              placeholder="Choose country" tabindex="">
+          <select class="input-area dropdown" id="js-select-country" type="text" name="query" autocomplete="off"
+            placeholder="Choose country" tabindex="">
 
-              <svg class="search-icon__icon-polygon-down" width="15" height="10">
-                <use href="./images/sprite.svg#icon-polygon-down"></use>
-              </svg>
+            <!-- <svg class="search-icon__icon-polygon-down" width="15" height="10">
+              <use href="./images/sprite.svg#icon-polygon-down"></use>
+            </svg> -->
 
-              <option value="">Choose country</option>
-              <option value="US">United States Of America</option>
-              <option value="AD">Andorra</option>
-              <option value="AI">Anguilla</option>
-              <option value="AR">Argentina</option>
-              <option value="AU">Australia</option>
-              <option value="AT">Austria</option>
-              <option value="AZ">Azerbaijan</option>
-              <option value="BS">Bahamas</option>
-              <option value="BH">Bahrain</option>
-              <option value="BB">Barbados</option>
-              <option value="BE">Belgium</option>
-              <option value="BM">Bermuda</option>
-              <option value="BR">Brazil</option>
-              <option value="BG">Bulgaria</option>
-              <option value="CA">Canada</option>
-              <option value="CL">Chile</option>
-              <option value="CN">China</option>
-              <option value="CO">Colombia</option>
-              <option value="CR">Costa Rica</option>
-              <option value="HR">Croatia</option>
-              <option value="CY">Cyprus</option>
-              <option value="CZ">Czech Republic</option>
-              <option value="DK">Denmark</option>
-              <option value="DO">Dominican Republic</option>
-              <option value="EC">Ecuador</option>
-              <option value="EE">Estonia</option>
-              <option value="FO">Faroe Islands</option>
-              <option value="FI">Finland</option>
-              <option value="FR">France</option>
-              <option value="GE">Georgia</option>
-              <option value="DE">Germany</option>
-              <option value="GH">Ghana</option>
-              <option value="GI">Gibraltar</option>
-              <option value="GB">Great Britain</option>
-              <option value="GR">Greece</option>
-              <option value="HK">Hong Kong</option>
-              <option value="HU">Hungary</option>
-              <option value="IS">Iceland</option>
-              <option value="IN">India</option>
-              <option value="IE">Ireland</option>
-              <option value="IL">Israel</option>
-              <option value="IT">Italy</option>
-              <option value="JM">Jamaica</option>
-              <option value="JP">Japan</option>
-              <option value="KR">Korea, Republic of</option>
-              <option value="LV">Latvia</option>
-              <option value="LB">Lebanon</option>
-              <option value="LT">Lithuania</option>
-              <option value="LU">Luxembourg</option>
-              <option value="MY">Malaysia</option>
-              <option value="MT">Malta</option>
-              <option value="MX">Mexico</option>
-              <option value="MC">Monaco</option>
-              <option value="ME">Montenegro</option>
-              <option value="MA">Morocco</option>
-              <option value="NL">Netherlands</option>
-              <option value="AN">Netherlands Antilles</option>
-              <option value="NZ">New Zealand</option>
-              <option value="ND">Northern Ireland</option>
-              <option value="NO">Norway</option>
-              <option value="PE">Peru</option>
-              <option value="PL">Poland</option>
-              <option value="PT">Portugal</option>
-              <option value="RO">Romania</option>
-              <option value="RU">Russian Federation</option>
-              <option value="LC">Saint Lucia</option>
-              <option value="SA">Saudi Arabia</option>
-              <option value="RS">Serbia</option>
-              <option value="SG">Singapore</option>
-              <option value="SK">Slovakia</option>
-              <option value="SI">Slovenia</option>
-              <option value="ZA">South Africa</option>
-              <option value="ES">Spain</option>
-              <option value="SE">Sweden</option>
-              <option value="CH">Switzerland</option>
-              <option value="TW">Taiwan</option>
-              <option value="TH">Thailand</option>
-              <option value="TT">Trinidad and Tobago</option>
-              <option value="TR">Turkey</option>
-              <option value="UA">Ukraine</option>
-              <option value="AE">United Arab Emirates</option>
-              <option value="UY">Uruguay</option>
-              <option value="VE">Venezuela</option>
 
-            </select>
-            <input type="hidden" id="select" />
-          </div> -->
+            <option class="dropdown__item" value="">Choose country</option>
+            <option class="dropdown__item" value="US">United States Of America</option>
+            <option class="dropdown__item" value="AD">Andorra</option>
+            <option class="dropdown__item" value="AI">Anguilla</option>
+            <option class="dropdown__item" value="AR">Argentina</option>
+            <option class="dropdown__item" value="AU">Australia</option>
+            <option class="dropdown__item" value="AT">Austria</option>
+            <option class="dropdown__item" value="AZ">Azerbaijan</option>
+            <option class="dropdown__item" value="BS">Bahamas</option>
+            <option class="dropdown__item" value="BH">Bahrain</option>
+            <option class="dropdown__item" value="BB">Barbados</option>
+            <option class="dropdown__item" value="BE">Belgium</option>
+            <option class="dropdown__item" value="BM">Bermuda</option>
+            <option class="dropdown__item" value="BR">Brazil</option>
+            <option class="dropdown__item" value="BG">Bulgaria</option>
+            <option class="dropdown__item" value="CA">Canada</option>
+            <option class="dropdown__item" value="CL">Chile</option>
+            <option class="dropdown__item" value="CN">China</option>
+            <option class="dropdown__item" value="CO">Colombia</option>
+            <option class="dropdown__item" value="CR">Costa Rica</option>
+            <option class="dropdown__item" value="HR">Croatia</option>
+            <option class="dropdown__item" value="CY">Cyprus</option>
+            <option class="dropdown__item" value="CZ">Czech Republic</option>
+            <option class="dropdown__item" value="DK">Denmark</option>
+            <option class="dropdown__item" value="DO">Dominican Republic</option>
+            <option class="dropdown__item" value="EC">Ecuador</option>
+            <option class="dropdown__item" value="EE">Estonia</option>
+            <option class="dropdown__item" value="FO">Faroe Islands</option>
+            <option class="dropdown__item" value="FI">Finland</option>
+            <option class="dropdown__item" value="FR">France</option>
+            <option class="dropdown__item" value="GE">Georgia</option>
+            <option class="dropdown__item" value="DE">Germany</option>
+            <option class="dropdown__item" value="GH">Ghana</option>
+            <option class="dropdown__item" value="GI">Gibraltar</option>
+            <option class="dropdown__item" value="GB">Great Britain</option>
+            <option class="dropdown__item" value="GR">Greece</option>
+            <option class="dropdown__item" value="HK">Hong Kong</option>
+            <option class="dropdown__item" value="HU">Hungary</option>
+            <option class="dropdown__item" value="IS">Iceland</option>
+            <option class="dropdown__item" value="IN">India</option>
+            <option class="dropdown__item" value="IE">Ireland</option>
+            <option class="dropdown__item" value="IL">Israel</option>
+            <option class="dropdown__item" value="IT">Italy</option>
+            <option class="dropdown__item" value="JM">Jamaica</option>
+            <option class="dropdown__item" value="JP">Japan</option>
+            <option class="dropdown__item" value="KR">Korea, Republic of</option>
+            <option class="dropdown__item" value="LV">Latvia</option>
+            <option class="dropdown__item" value="LB">Lebanon</option>
+            <option class="dropdown__item" value="LT">Lithuania</option>
+            <option class="dropdown__item" value="LU">Luxembourg</option>
+            <option class="dropdown__item" value="MY">Malaysia</option>
+            <option class="dropdown__item" value="MT">Malta</option>
+            <option class="dropdown__item" value="MX">Mexico</option>
+            <option class="dropdown__item" value="MC">Monaco</option>
+            <option class="dropdown__item" value="ME">Montenegro</option>
+            <option class="dropdown__item" value="MA">Morocco</option>
+            <option class="dropdown__item" value="NL">Netherlands</option>
+            <option class="dropdown__item" value="AN">Netherlands Antilles</option>
+            <option class="dropdown__item" value="NZ">New Zealand</option>
+            <option class="dropdown__item" value="ND">Northern Ireland</option>
+            <option class="dropdown__item" value="NO">Norway</option>
+            <option class="dropdown__item" value="PE">Peru</option>
+            <option class="dropdown__item" value="PL">Poland</option>
+            <option class="dropdown__item" value="PT">Portugal</option>
+            <option class="dropdown__item" value="RO">Romania</option>
+            <option class="dropdown__item" value="RU">Russian Federation</option>
+            <option class="dropdown__item" value="LC">Saint Lucia</option>
+            <option class="dropdown__item" value="SA">Saudi Arabia</option>
+            <option class="dropdown__item" value="RS">Serbia</option>
+            <option class="dropdown__item" value="SG">Singapore</option>
+            <option class="dropdown__item" value="SK">Slovakia</option>
+            <option class="dropdown__item" value="SI">Slovenia</option>
+            <option class="dropdown__item" value="ZA">South Africa</option>
+            <option class="dropdown__item" value="ES">Spain</option>
+            <option class="dropdown__item" value="SE">Sweden</option>
+            <option class="dropdown__item" value="CH">Switzerland</option>
+            <option class="dropdown__item" value="TW">Taiwan</option>
+            <option class="dropdown__item" value="TH">Thailand</option>
+            <option class="dropdown__item" value="TT">Trinidad and Tobago</option>
+            <option class="dropdown__item" value="TR">Turkey</option>
+            <option class="dropdown__item" value="UA">Ukraine</option>
+            <option class="dropdown__item" value="AE">United Arab Emirates</option>
+            <option class="dropdown__item" value="UY">Uruguay</option>
+            <option class="dropdown__item" value="VE">Venezuela</option>
 
-          <input
-            class="input-area"
-            id="js-input-country"
-            type="text"
-            name="query"
-            autocomplete="off"
-            placeholder="Choose country"
-          />
+          </select>
+          <!-- <input type="hidden" id="select" /> -->
+          <!-- </div> -->
+
+
+          <input class="input-area" id="js-input-country" type="hidden" name="query" autocomplete="off"
+            placeholder="Choose country" />
           <svg class="search-icon__icon-polygon-down" width="15" height="10">
             <use href="./images/sprite.svg#icon-polygon-down"></use>
           </svg>
-          <ul class="dropdown list">
+          <!-- <ul class="dropdown list">
             <li class="dropdown__item" data-value="US">United States Of America</li>
 
             <li class="dropdown__item" data-value="AD">Andorra</li>
@@ -291,7 +281,7 @@
             <li class="dropdown__item" data-value="UY">Uruguay</li>
 
             <li class="dropdown__item" data-value="VE">Venezuela</li>
-          </ul>
+          </ul> -->
         </div>
       </form>
     </div>
