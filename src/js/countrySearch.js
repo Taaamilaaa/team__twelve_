@@ -11,9 +11,8 @@ const refs = {
     country: document.querySelector('.dropdown'),
     searchFormCountry: document.querySelector('#js-input-country'),
     container: document.querySelector('.container-list'),
-    searchFormEvent: document.querySelector('#js-input-event')
+    searchFormEvent: document.querySelector('#js-input-event'),
 };
-
 refs.country.addEventListener('click', debounce((onSearch), 500));
 
 function onSearch(event) {
@@ -50,29 +49,25 @@ async function apiServisesRenderTui() {
 
             if (typeof (res.data._embedded) === 'object') {
                 console.log('in promise', typeof (res.data._embedded));
-                removeEvents();
-
-                renderEvents(res.data._embedded.events);
                 let data = res.data.page
-                if (data.totalElements >= 12) {
-                    pagination(data);
-                }
+                pagination(data);
+                removeEvents();
+                logicPagination(data);
+               renderEvents(res.data._embedded.events);                          
             }
-
         });
-
     } catch (error) {
         console.dir(error.stack);
     }
 };
 
 export default function pagination(data) {
-    console.log('in paginetion', data);
+    // console.log('in paginetion', data);
     const options = {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
         visiblePages: 5,
-        page: data.number,
+        page:( data.number || 1 ),
         centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
@@ -102,6 +97,24 @@ export default function pagination(data) {
         apiService.Page = currentPage;
         apiServisesRenderTui();
     });
-}
+};
 
-
+function logicPagination(data) {
+    if (data.totalElements >= 12) {
+        visiblePagination();
+       
+    } else 
+    hiddenPagination();
+    return
+};
+function hiddenPagination() {
+   const paginationContainer = document.querySelector('#pagination');
+   console.log(paginationContainer);
+   paginationContainer.classList.add('is-hidden-tui');
+};
+function visiblePagination() {
+    const paginationContainer = document.querySelector('#pagination');
+    paginationContainer.classList.remove('is-hidden-tui');
+    paginationContainer.classList.add('is-visible-tui');
+    console.log(paginationContainer);
+};
