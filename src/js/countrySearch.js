@@ -7,14 +7,14 @@ const debounce = require('lodash.debounce');
 const apiService = new ApiService();
 let searchEvent = '';
 let eventCountry = '';
-// console.log(number)
+
 const refs = {
-    country: document.querySelector('.dropdown'),
-    searchFormCountry: document.querySelector('#js-input-country'),
+    searchFormCountry: document.querySelector('#js-select-country'),
     container: document.querySelector('.container-list'),
     searchFormEvent: document.querySelector('#js-input-event'),
 };
-refs.country.addEventListener('click', debounce((onSearch), 500));
+
+refs.searchFormCountry.addEventListener('change', debounce((onSearch), 500));
 refs.searchFormEvent.addEventListener('input', debounce ((onSearchEvent),500));
 
 function onSearchEvent(event) {
@@ -24,14 +24,14 @@ function onSearchEvent(event) {
          onSearchCountry()
       }
 };
-function onSearch(event) {
-    event.preventDefault();
-    if (event.target.classList.contains('dropdown__item')) {
-        eventCountry = event.target.dataset.value;
-        console.log( event.target.dataset.value);
-        refs.searchFormCountry.value = event.target.dataset.value;
-        onSearchCountry()
-    }
+function onSearch() {    
+    let selectedEl = refs.searchFormCountry.
+                options[ refs.searchFormCountry.options.selectedIndex].value;
+     if (selectedEl) {
+    eventCountry = selectedEl;
+    console.log(selectedEl);
+    onSearchCountry()  
+  }    
 };
 
 function onSearchCountry() {
