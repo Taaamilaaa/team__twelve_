@@ -6,14 +6,20 @@ const refs = {
 
 refs.container.addEventListener('click', imageContainerClick);
 function imageContainerClick(event) {
-  event.preventDefault();
-  if (event.target.tagName !== 'IMG') {
+  // event.preventDefault();
+
+  if (
+    event.target.tagName !== 'IMG' &&
+    event.target.className === 'container-items::before' &&
+    event.target.className === 'container-list"'
+  ) {
     return;
   }
-  console.log(event);
+  if (event.target.tagName === 'A') {
+    return;
+  }
   refs.modalContainer.classList.add('is-open');
 }
-
 refs.closModal.addEventListener('click', closeModalClick);
 
 function closeModalClick() {
