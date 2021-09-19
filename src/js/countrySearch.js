@@ -1,5 +1,4 @@
 import ApiService from './api-service';
-import startRender from './start-loading'
 import cardTemplate from '../templates/card-image.hbs';
 import { Notify } from 'notiflix';
 import Pagination from 'tui-pagination';
@@ -21,11 +20,6 @@ refs.searchFormEvent.addEventListener('input', debounce((onSearchEvent), 500));
 function onSearchEvent(event) {
     event.preventDefault();
     apiService.query = refs.searchFormEvent.value
-    if (apiService.query === '') {
-        // removeEvents()
-        startRender()
-        return
-    }
     apiServisesRenderTui()
 };
 function onSearch() {
@@ -34,11 +28,6 @@ function onSearch() {
     apiService.queryCountry = selectedEl;
 
     console.log(selectedEl);
-    if (selectedEl === "") {
-        removeEvents()
-        startRender()
-        return
-    }
 
     apiServisesRenderTui();
 };
@@ -54,7 +43,6 @@ function removeEvents() {
 async function apiServisesRenderTui() {
     try {
         await apiService.fetchApi().then(res => {
-
             if (typeof (res.data._embedded) === 'object') {
                 let data = res.data.page
                 pagination(data);
