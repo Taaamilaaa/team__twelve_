@@ -4,7 +4,6 @@ import './js/start-loading';
 import './js/countrySearch';
 import './js/scroll-top-btn';
 import './js/dropdown-menu';
-
-
+import './js/team';
 
 
