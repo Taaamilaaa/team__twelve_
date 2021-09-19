@@ -6,12 +6,11 @@ const refs = {
 
 refs.container.addEventListener('click', imageContainerClick);
 function imageContainerClick(event) {
-  // event.preventDefault();
+  event.preventDefault();
 
   if (
-    event.target.tagName !== 'IMG' &&
-    event.target.className === 'container-items::before' &&
-    event.target.className === 'container-list"'
+    event.target.tagName !== 'IMG'
+    // event.target.className === 'container-items::before'
   ) {
     return;
   }
