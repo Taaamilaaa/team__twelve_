@@ -9,13 +9,12 @@ const refs = {
     country: document.querySelector('.dropdown'),
     container: document.querySelector('.container-list')
 };
-apiServisesRender()
-function apiServisesRender() {
+startRender()
+export default function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
             if (typeof (res.data._embedded.attractions) === 'object') {
                 removeEvents();
-                console.log(res.data);
                 render(res.data._embedded.attractions);
                 let data = res.data.page
                 if (data.totalElements >= 12) {
@@ -36,12 +35,11 @@ function removeEvents() {
 }
 
 function paginations(data) {
-    console.log('in paginetion', data);
     const options = {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
         visiblePages: 5,
-        page: data.number,
+        page: (data.number || 1),
         centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
@@ -69,6 +67,6 @@ function paginations(data) {
         const currentPage = event.page;
         console.log(currentPage);
         apiService.Page = currentPage;
-        apiServisesRender();
+        startRender();
     });
 }

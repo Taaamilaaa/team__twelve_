@@ -6,7 +6,7 @@ export default class ApiService {
     constructor() {
         this.searchQuery = '';
         this.countryCode = '';
-        this.page = 0;
+        this.page = 1;
     };
 
     fetchApiStart() {
@@ -22,16 +22,16 @@ export default class ApiService {
 
     };
     fetchApi() {
-console.log(this.searchQuery);
-console.log(this.countryCode);
-console.log(this.page);
+        console.log(this.searchQuery);
+        console.log(this.countryCode);
+        console.log(this.page);
         const searchParams = new URLSearchParams({
             keyword: this.searchQuery,
             size: '12',
             countryCode: this.countryCode,
             page: this.page,
         })
-        
+
         const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
         return axios.get(url);
 
@@ -57,7 +57,7 @@ console.log(this.page);
         this.page = newPage;
     }
     resetPage() {
-        this.page = 0;
+        this.page = 1;
     }
     incrementPage() {
         this.page += 1;
