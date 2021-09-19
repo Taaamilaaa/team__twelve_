@@ -91,8 +91,8 @@ const n={countryMenu:document.querySelector("#countryMenu"),dropdown:document.qu
 },{}],"ZxpD":[function(require,module,exports) {
 (()=>{const e={openModalBtn:document.querySelector("[data-modal-open]"),closeModalBtn:document.querySelector("[data-modal-close]"),modal:document.querySelector("[data-modal]")};function o(){document.body.classList.toggle("modal-open"),e.modal.classList.toggle("is-hidden")}e.openModalBtn.addEventListener("click",o),e.closeModalBtn.addEventListener("click",o)})();
 },{}],"Ja3G":[function(require,module,exports) {
-const e={container:document.querySelector(".container-list"),modalContainer:document.querySelector(".lightbox"),closModal:document.querySelector(".close-modal")};function t(t){"IMG"!==t.target.tagName&&"container-items::before"===t.target.className&&'container-list"'===t.target.className||"A"!==t.target.tagName&&e.modalContainer.classList.add("is-open")}function a(){e.modalContainer.classList.remove("is-open")}e.container.addEventListener("click",t),e.closModal.addEventListener("click",a);
+const e={container:document.querySelector(".container-list"),modalContainer:document.querySelector(".lightbox"),closModal:document.querySelector(".close-modal")};function t(t){console.log(t),"IMG"!==t.target.tagName&&"container-items"!==t.target.className||"A"!==t.target.tagName&&e.modalContainer.classList.add("is-open")}function o(){e.modalContainer.classList.remove("is-open")}e.container.addEventListener("click",t),e.closModal.addEventListener("click",o);
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/start-loading"),require("./js/countrySearch"),require("./js/scroll-top-btn"),require("./js/dropdown-menu"),require("./js/team"),require("./js/modal-open");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/start-loading":"DRt5","./js/countrySearch":"WmIM","./js/scroll-top-btn":"Gm5E","./js/dropdown-menu":"q6Tg","./js/team":"ZxpD","./js/modal-open":"Ja3G"}]},{},["Focm"], null)
-//# sourceMappingURL=/team__twelve_/src.a9d9c88b.js.map
+//# sourceMappingURL=/team__twelve_/src.2a5dc72c.js.map
