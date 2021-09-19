@@ -12,7 +12,7 @@ export default class ApiService {
     fetchApiStart() {
 
         const searchParams = new URLSearchParams({
-            size: '12',
+            size: '20',
             page: this.page,
             source: "ticketmaster",
             sort: 'random'
