@@ -7,12 +7,8 @@ const refs = {
 refs.container.addEventListener('click', imageContainerClick);
 function imageContainerClick(event) {
   // event.preventDefault();
-
-  if (
-    event.target.tagName !== 'IMG' &&
-    event.target.className === 'container-items::before' &&
-    event.target.className === 'container-list"'
-  ) {
+  console.log(event);
+  if (event.target.tagName !== 'IMG' && event.target.className !== 'container-items') {
     return;
   }
   if (event.target.tagName === 'A') {
