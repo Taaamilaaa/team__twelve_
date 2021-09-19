@@ -51,7 +51,7 @@ body {
     bottom: 50px;
   }
 
-  .container-items::before {
+  .container-before::before {
     content: '';
     position: absolute;
     width: 108px;
@@ -113,7 +113,7 @@ body {
   .container-list {
     bottom: 30px;
   }
-  .container-items::before {
+  .container-before::before {
     content: '';
     position: absolute;
     width: 153px;
