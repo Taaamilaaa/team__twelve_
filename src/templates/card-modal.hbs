@@ -1,0 +1,57 @@
+{{#each this}}
+<div class="box-image">
+    <img class="img-modal" src="{{images.1.url}}" alt="" />
+</div>
+<div class="container-modal">
+    <img class="img-modal_big" src="" alt="team__twelve_" />
+    <ul class="modal-container">
+        <li class="modal__title-list modal__title-list-null">
+            <h3 class="modal__title">INFO</h3>
+            <p class="modal__title-description size-description-title">
+                Atlas Weekend is the largest music festival in Ukraine. More than 200 artists will
+                create a proper music festival atmosphere on 10 stages
+            </p>
+        </li>
+        <li class="modal__title-list description-size">
+            <h3 class="modal__title">WHEN</h3>
+            <span class="modal__title-description">{{dates.start.localDate}}</span>
+            <span class="modal__title-description">{{dates.start.localTime}} {{dates.timezone}}</span>
+        </li>
+        <li class="modal__title-list description-size">
+            <h3 class="modal__title">WHERE</h3>
+            <span class="modal__title-description">{{_embedded.venues.0.city.name}},
+                {{_embedded.venues.0.country.name}}</span>
+            <span class="modal__title-description">{{_embedded.venues.0.address.line1}}</span>
+        </li>
+        <li class="modal__title-list description-size">
+            <h3 class="modal__title">WHO</h3>
+            <span class="modal__title-description">The Black Eyed Peas</span>
+        </li>
+        <li class="modal__title-list">
+            <h3 class="modal__title">PRICES</h3>
+            <div class="button-block">
+                <span class="modal__title-button"><svg class="svg-ticket" width="24" height="16">
+                        <use href="./images/sprite.svg#icon-ticket1"></use>
+                    </svg>{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max}}
+                    {{priceRanges.0.currency}}</span>
+                <form
+                    action="https://www.ticketmaster.ca/montreal-canadiens-vs-detroit-red-wings-montreal-quebec-10-23-2021/event/31005B2A0976364E"
+                    target="_blank">
+                    <button type="button" class="button-form">BUY TICKETS</button>
+                </form>
+            </div>
+            <div class="button-block button-block_buy">
+                <span class="modal__title-button"><svg class="svg-ticket" width="24" height="16">
+                        <use href="./images/sprite.svg#icon-ticket2"></use>
+                    </svg>VIP 1000-1500 UAH</span>
+                <form
+                    action="https://www.ticketmaster.ca/montreal-canadiens-vs-detroit-red-wings-montreal-quebec-10-23-2021/event/31005B2A0976364E"
+                    target="_blank">
+                    <button type="button" class="button-form">BUY TICKETS</button>
+                </form>
+            </div>
+        </li>
+    </ul>
+</div>
+<button type="button" class="button-form__inform">MORE FROM THIS AUTHOR</button>
+{{/each}}
