@@ -201,6 +201,9 @@
   @media screen and (min-width: 768px) {
     margin-left: 0px;
   }
+  @media screen and (min-width: 1280px) {
+    width: 450px;
+  }
 }
 .svg-ticket {
   display: inline-block;
@@ -235,7 +238,6 @@
 .box-image {
   width: 102px;
   height: 102px;
-  background-image: url(https://cdn.fishki.net/upload/post/2018/11/19/2772341/bez-nazvanija.jpg);
   background-size: 132px 132px;
   background-position: center;
   background-repeat: no-repeat;
@@ -307,4 +309,8 @@
   @media screen and (min-width: 1280px) {
     margin-top: 30px;
   }
+}
+
+.button-svg {
+  margin-right: 13px;
 }

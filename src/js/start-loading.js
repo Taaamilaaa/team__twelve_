@@ -1,7 +1,7 @@
 import ApiService from './api-service';
 import startTemplate from '../templates/start-loading.hbs';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+
 
 const apiService = new ApiService();
 
@@ -10,14 +10,14 @@ const refs = {
     container: document.querySelector('.container-list')
 };
 startRender()
-export default function startRender() {
+function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
             if (typeof (res.data._embedded.attractions) === 'object') {
                 removeEvents();
                 render(res.data._embedded.attractions);
                 let data = res.data.page
-                if (data.totalElements >= 12) {
+                if (data.totalElements >= 20) {
                     paginations(data);
                 } else paginations();
             }

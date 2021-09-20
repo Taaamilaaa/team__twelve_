@@ -17,15 +17,14 @@ refs.searchFormEvent.addEventListener('input', debounce((onSearchEvent), 500));
 function onSearchEvent(event) {
     event.preventDefault();
     apiService.query = refs.searchFormEvent.value
+    apiService.resetPage();
     apiServisesRenderTui()
 };
 function onSearch() {
     let selectedEl = refs.searchFormCountry.
         options[refs.searchFormCountry.options.selectedIndex].value;
     apiService.queryCountry = selectedEl;
-
-    // console.log(selectedEl);
-
+    apiService.resetPage();
     apiServisesRenderTui();
 };
 
@@ -50,8 +49,18 @@ async function apiServisesRenderTui() {
                 renderEvents(res.data._embedded.events);
                 
             }
+            // if (res.data.page.totalElements > 0) {
+            //     Notify.success(`Hooray! We found ${res.data.page.totalElements} events`,
+            //         { useGoogleFont: true, timeout: 3000, width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px" });
+            // }
+            if (res.data.page.totalElements === 0) {
+                Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
+                    { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
+            }
+
         });
     } catch (error) {
+
         console.dir(error.stack);
     }
 };
@@ -62,7 +71,7 @@ function pagination(data) {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
         visiblePages: 5,
-        page: (data.number || 1),
+        page: data.number,
         centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
