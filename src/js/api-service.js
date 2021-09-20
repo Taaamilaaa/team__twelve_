@@ -2,7 +2,7 @@ import axios from 'axios';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 const API_KEY = 'YsjNnwTdurU18i07JYk9pbaKz6rXoV2D';
 
-export default class ApiService {
+class ApiService {
     constructor() {
         this.searchQuery = '';
         this.countryCode = '';
