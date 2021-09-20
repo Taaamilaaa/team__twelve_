@@ -2,7 +2,6 @@ import ApiService from './api-service';
 import cardTemplate from '../templates/card-image.hbs';
 import { Notify } from 'notiflix';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 
 const debounce = require('lodash.debounce');
 const apiService = new ApiService();
