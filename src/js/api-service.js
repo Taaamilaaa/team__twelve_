@@ -15,7 +15,8 @@ export default class ApiService {
             size: '20',
             page: this.page,
             source: "ticketmaster",
-            sort: 'random'
+            sort: 'relevance,desc',
+            classificationName: 'Classical'
         })
         const url = `${BASE_URL}attractions.json?&apikey=${API_KEY}&${searchParams}`;
         return axios.get(url);
@@ -27,7 +28,7 @@ export default class ApiService {
         console.log(this.page);
         const searchParams = new URLSearchParams({
             keyword: this.searchQuery,
-            size: '12',
+            size: '20',
             countryCode: this.countryCode,
             page: this.page,
         })
@@ -48,7 +49,6 @@ export default class ApiService {
     set query(newQuery) {
         this.searchQuery = newQuery;
     }
-
 
     get Page() {
         return this.searchPage.trim();
