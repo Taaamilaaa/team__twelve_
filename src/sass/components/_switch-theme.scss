@@ -1,0 +1,11 @@
+.switch-theme {
+    color: #ffffff;
+    &__wrapper{
+    backgraund: url('../images/switch-theme.svg#icon-day');
+    backgraund-size: contain;
+    // width: 20px;
+    // height: 20px;
+    border: none;
+}
+
+}
