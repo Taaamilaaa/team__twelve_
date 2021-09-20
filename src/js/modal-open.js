@@ -32,7 +32,6 @@ function closeModalClick() {
 }
 
 function closelightboxClick(event) {
-  console.log(event);
   if (event.target.nodeName !== 'SECTION') {
     return;
   }

@@ -3,24 +3,20 @@
     <img class="img-modal" src="{{images.1.url}}" alt="" />
 </div>
 <div class="container-modal">
-    <img class="img-modal_big" src="" alt="team__twelve_" />
+    <img class="img-modal_big" src="{{images.4.url}}" alt="team__twelve_" />
     <ul class="modal-container">
         <li class="modal__title-list modal__title-list-null">
             <h3 class="modal__title">INFO</h3>
-            <p class="modal__title-description size-description-title">
-                Atlas Weekend is the largest music festival in Ukraine. More than 200 artists will
-                create a proper music festival atmosphere on 10 stages
-            </p>
+            <p class="modal__title-description size-description-title">{{_embedded.info}}</p>
         </li>
         <li class="modal__title-list description-size">
             <h3 class="modal__title">WHEN</h3>
             <span class="modal__title-description">{{dates.start.localDate}}</span>
-            <span class="modal__title-description">{{dates.start.localTime}} {{dates.timezone}}</span>
+            <span class="modal__title-description">{{dates.start.localTime}} ({{dates.timezone}})</span>
         </li>
         <li class="modal__title-list description-size">
             <h3 class="modal__title">WHERE</h3>
-            <span class="modal__title-description">{{_embedded.venues.0.city.name}},
-                {{_embedded.venues.0.country.name}}</span>
+            <span class="modal__title-description">{{_embedded.venues.0.city.name}}, {{_embedded.venues.0.country.name}}</span>
             <span class="modal__title-description">{{_embedded.venues.0.address.line1}}</span>
         </li>
         <li class="modal__title-list description-size">
@@ -30,28 +26,44 @@
         <li class="modal__title-list">
             <h3 class="modal__title">PRICES</h3>
             <div class="button-block">
-                <span class="modal__title-button"><svg class="svg-ticket" width="24" height="16">
-                        <use href="./images/sprite.svg#icon-ticket1"></use>
-                    </svg>{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max}}
+                <span class="modal__title-button"><svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-svg">
+                    <path d="M2.66668 0.833496L0 0.833496L0 16.8335H2.66668L2.66668 0.833496Z" fill="#0E0E0E" />
+                    <path d="M9.3737 0.833496L6.70703 0.833496L6.70703 16.8335H9.3737L9.3737 0.833496Z" fill="#0E0E0E" />
+                    <path d="M13.4142 0.833496L10.7476 0.833496L10.7476 16.8335H13.4142L13.4142 0.833496Z" fill="#0E0E0E" />
+                    <path d="M24 0.833496L20.0404 0.833496L20.0404 16.8335H24L24 0.833496Z" fill="#0E0E0E" />
+                    <path d="M5.33334 0.833496L4.04041 0.833496L4.04041 16.8335H5.33334L5.33334 0.833496Z" fill="#0E0E0E" />
+                    <path d="M16 0.833496L14.707 0.833496L14.707 16.8335H16L16 0.833496Z" fill="#0E0E0E" />
+                    <path d="M18.6666 0.833496L17.3737 0.833496L17.3737 16.8335H18.6666L18.6666 0.833496Z" fill="#0E0E0E" />
+                </svg>{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max}}
                     {{priceRanges.0.currency}}</span>
                 <form
                     action="https://www.ticketmaster.ca/montreal-canadiens-vs-detroit-red-wings-montreal-quebec-10-23-2021/event/31005B2A0976364E"
                     target="_blank">
-                    <button type="button" class="button-form">BUY TICKETS</button>
+                    <button type="submit" class="button-form">BUY TICKETS</button>
                 </form>
             </div>
             <div class="button-block button-block_buy">
-                <span class="modal__title-button"><svg class="svg-ticket" width="24" height="16">
-                        <use href="./images/sprite.svg#icon-ticket2"></use>
-                    </svg>VIP 1000-1500 UAH</span>
+                <span class="modal__title-button"><svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-svg">
+                    <path d="M2.66668 0.833496L0 0.833496L0 16.8335H2.66668L2.66668 0.833496Z" fill="#0E0E0E" />
+                    <path d="M9.3737 0.833496L6.70703 0.833496L6.70703 16.8335H9.3737L9.3737 0.833496Z" fill="#0E0E0E" />
+                    <path d="M13.4142 0.833496L10.7476 0.833496L10.7476 16.8335H13.4142L13.4142 0.833496Z" fill="#0E0E0E" />
+                    <path d="M24 0.833496L20.0404 0.833496L20.0404 16.8335H24L24 0.833496Z" fill="#0E0E0E" />
+                    <path d="M5.33334 0.833496L4.04041 0.833496L4.04041 16.8335H5.33334L5.33334 0.833496Z" fill="#0E0E0E" />
+                    <path d="M16 0.833496L14.707 0.833496L14.707 16.8335H16L16 0.833496Z" fill="#0E0E0E" />
+                    <path d="M18.6666 0.833496L17.3737 0.833496L17.3737 16.8335H18.6666L18.6666 0.833496Z" fill="#0E0E0E" />
+                </svg>VIP 1000-1500 UAH</span>
                 <form
                     action="https://www.ticketmaster.ca/montreal-canadiens-vs-detroit-red-wings-montreal-quebec-10-23-2021/event/31005B2A0976364E"
                     target="_blank">
-                    <button type="button" class="button-form">BUY TICKETS</button>
+                    <button type="submit" class="button-form">BUY TICKETS</button>
                 </form>
             </div>
         </li>
     </ul>
 </div>
-<button type="button" class="button-form__inform">MORE FROM THIS AUTHOR</button>
+<form
+    action=""
+    target="_blank">
+<button type="submit" class="button-form__inform">MORE FROM THIS AUTHOR</button>
+</form>
 {{/each}}
