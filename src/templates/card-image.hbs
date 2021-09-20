@@ -9,9 +9,12 @@
     <p class="text-color text">{{localDate}}</p>
     {{/start}}
     {{/dates}}
+    
     <a href="{{_embedded.venues.0.url}}" class="text-color-item text-link link"
             target="_blank">
-            <img src="" alt="" width="7" height="10" class="img-vector">
+        <svg class="img-vector" width="7" height="10">
+            <use href="./images/sprite.svg#icon-place"></use>
+        </svg>
             {{_embedded.venues.0.name}}
         </a>
 </li>
