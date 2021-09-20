@@ -1,21 +1,19 @@
 {{#each this}}
-
 <li class="container-items">
-    <a href="##" class="gallery__link">
+    <div class="container-before">
     <img src="{{images.0.url}}" alt="" class="container-image">
-    </a>
+    </div>
     <h2 class="text-color text-title">{{name}}</h2>
     {{#dates}}
     {{#start}}
     <p class="text-color text">{{localDate}}</p>
     {{/start}}
     {{/dates}}
-
-    <div class="div-items">
-        <img src="" alt="" width="7" height="10" class="img-vector">
-        <a href="{{_embedded.venues.0.url}}" class="text-color-item text-link link"
-            target="_blank">{{_embedded.venues.0.name}}</a>
-    </div>
+    <a href="{{_embedded.venues.0.url}}" class="text-color-item text-link link"
+            target="_blank">
+            <img src="" alt="" width="7" height="10" class="img-vector">
+            {{_embedded.venues.0.name}}
+        </a>
 </li>
 {{/each}}
 

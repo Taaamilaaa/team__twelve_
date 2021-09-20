@@ -1,6 +1,7 @@
-// body {
-//   background-color: #0d0d0d;
-// }
+body {
+  background-color: #0d0d0d;
+}
+
 .text-color {
   margin-top: 5px;
   margin-bottom: 0;
@@ -50,7 +51,7 @@
     bottom: 50px;
   }
 
-  .gallery__link::before {
+  .container-before::before {
     content: '';
     position: absolute;
     width: 108px;
@@ -60,6 +61,7 @@
     border-radius: 50px 0px;
     margin-left: 30px;
     margin-top: -10px;
+    cursor: pointer;
   }
 
   .text-title {
@@ -105,12 +107,13 @@
     border-radius: 50px 0px;
     height: 227px;
     object-fit: cover;
+    cursor: pointer;
   }
 
   .container-list {
     bottom: 30px;
   }
-  .gallery__link::before {
+  .container-before::before {
     content: '';
     position: absolute;
     width: 153px;
@@ -120,6 +123,7 @@
     border-radius: 50px 0px;
     margin-left: 40px;
     margin-top: -15px;
+    cursor: pointer;
   }
 
   .text-title {
@@ -156,8 +160,4 @@
 
     justify-content: center;
   }
-}
-
-.gallery__link {
-  cursor: zoom-in;
 }
