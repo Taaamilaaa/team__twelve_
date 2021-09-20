@@ -51,11 +51,11 @@ async function apiServisesRenderTui() {
             }
             if (res.data.page.totalElements > 0) {
                 Notify.success(`Hooray! We found ${res.data.page.totalElements} events`,
-                    { fontFamily: "Quicksand", useGoogleFont: true, timeout: 3000, });
+                    { useGoogleFont: true, timeout: 3000, width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px" });
             }
             if (res.data.page.totalElements === 0) {
                 Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
-                    { fontFamily: "Quicksand", useGoogleFont: true, timeout: 5000, });
+                    { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
             }
 
         });
