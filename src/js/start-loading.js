@@ -10,14 +10,14 @@ const refs = {
     container: document.querySelector('.container-list')
 };
 startRender()
-export default function startRender() {
+function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
             if (typeof (res.data._embedded.attractions) === 'object') {
                 removeEvents();
                 render(res.data._embedded.attractions);
                 let data = res.data.page
-                if (data.totalElements >= 12) {
+                if (data.totalElements >= 20) {
                     paginations(data);
                 } else paginations();
             }
