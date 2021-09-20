@@ -5,8 +5,6 @@ import Pagination from 'tui-pagination';
 
 const debounce = require('lodash.debounce');
 const apiService = new ApiService();
-
-
 const refs = {
     searchFormCountry: document.querySelector('#js-select-country'),
     container: document.querySelector('.container-list'),
@@ -26,8 +24,6 @@ function onSearch() {
     let selectedEl = refs.searchFormCountry.
         options[refs.searchFormCountry.options.selectedIndex].value;
     apiService.queryCountry = selectedEl;
-
-    console.log(selectedEl);
     apiService.resetPage();
     apiServisesRenderTui();
 };
@@ -44,11 +40,14 @@ async function apiServisesRenderTui() {
     try {
         await apiService.fetchApi().then(res => {
             if (typeof (res.data._embedded) === 'object') {
+                console.log(res.data._embedded.events[0].id);
+                // console.log(res.data._embedded.events[0]._embedded.attractions[0].id);
                 let data = res.data.page
                 pagination(data);
                 removeEvents();
                 logicPagination(data);
                 renderEvents(res.data._embedded.events);
+                
             }
             // if (res.data.page.totalElements > 0) {
             //     Notify.success(`Hooray! We found ${res.data.page.totalElements} events`,
@@ -66,7 +65,7 @@ async function apiServisesRenderTui() {
     }
 };
 
-export default function pagination(data) {
+function pagination(data) {
     // console.log('in paginetion', data);
     const options = {
         totalItems: data.totalElements,
@@ -96,9 +95,9 @@ export default function pagination(data) {
     };
     const pagination = new Pagination('.tui-pagination', options);
     pagination.on('afterMove', (event) => {
-        console.log('in pagination.on', options);
+        // console.log('in pagination.on', options);
         const currentPage = event.page;
-        console.log(currentPage);
+        // console.log(currentPage);
         apiService.Page = currentPage;
         apiServisesRenderTui();
     });
