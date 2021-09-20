@@ -1,7 +1,7 @@
 import ApiService from './api-service';
 import startTemplate from '../templates/start-loading.hbs';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+
 
 const apiService = new ApiService();
 
