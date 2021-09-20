@@ -7,6 +7,7 @@ export default class ApiService {
         this.searchQuery = '';
         this.countryCode = '';
         this.page = 1;
+        this.id = '';
     };
 
     fetchApiStart() {
@@ -37,6 +38,15 @@ export default class ApiService {
         return axios.get(url);
 
     };
+
+    fetchApiId() {     
+        const  id = this.id;
+
+        console.log(this.id);
+        const url = `${BASE_URL}/events/${id}?apikey=${API_KEY}&locale=*`
+        return axios.get(url);
+
+    };
     get queryCountry() {
         return this.countryCode.trim();
     };
@@ -55,6 +65,13 @@ export default class ApiService {
     };
     set Page(newPage) {
         this.page = newPage;
+    }
+
+    get searchId() {
+        return this.searchId.trim();
+    };
+    set searchId(newid) {
+        this.id = newid;
     }
     resetPage() {
         this.page = 1;
