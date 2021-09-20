@@ -43,6 +43,8 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 1.25;
+
+  // background-image: url(../images/sprite.svg#icon-polygon-down) no-repeat right;
   // color: #ffffff;
   // padding-top: 20px;
   // margin-top: 20px;
@@ -62,7 +64,7 @@ select {
   // -moz-appearance: none;
   // appearance: none;
   overflow: hidden;
-  background-image: url('../images/sprite.svg#icon-polygon-down') no-repeat right;
+  // background-image: url(../images/polygon.png) no-repeat right;
   background-position-x: calc(100% - 30px);
 }
 
