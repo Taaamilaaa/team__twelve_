@@ -60,6 +60,27 @@ body {
     cursor: pointer;
   }
 
+  // ANIMATION
+
+  .container-items {
+    display: inline-block;
+    animation: scale 1s 0s;
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(90deg);
+    }
+
+    //   0% {
+    //     transform: rotate(0);
+    //   }
+  }
+
   .text-title {
     font-family: Montserrat;
     font-style: normal;
