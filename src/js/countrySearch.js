@@ -49,8 +49,18 @@ async function apiServisesRenderTui() {
                 logicPagination(data);
                 renderEvents(res.data._embedded.events);
             }
+            if (res.data.page.totalElements > 0) {
+                Notify.success(`Hooray! We found ${res.data.page.totalElements} events`,
+                    { fontFamily: "Quicksand", useGoogleFont: true, timeout: 3000, });
+            }
+            if (res.data.page.totalElements === 0) {
+                Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
+                    { fontFamily: "Quicksand", useGoogleFont: true, timeout: 5000, });
+            }
+
         });
     } catch (error) {
+
         console.dir(error.stack);
     }
 };
