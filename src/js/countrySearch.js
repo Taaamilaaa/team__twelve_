@@ -19,6 +19,7 @@ refs.searchFormEvent.addEventListener('input', debounce((onSearchEvent), 500));
 function onSearchEvent(event) {
     event.preventDefault();
     apiService.query = refs.searchFormEvent.value
+    apiService.resetPage();
     apiServisesRenderTui()
 };
 function onSearch() {
@@ -27,7 +28,7 @@ function onSearch() {
     apiService.queryCountry = selectedEl;
 
     console.log(selectedEl);
-
+    apiService.resetPage();
     apiServisesRenderTui();
 };
 
@@ -71,7 +72,7 @@ export default function pagination(data) {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
         visiblePages: 5,
-        page: (data.number || 1),
+        page: data.number,
         centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
