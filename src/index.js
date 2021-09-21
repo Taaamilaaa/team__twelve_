@@ -8,3 +8,4 @@ import './js/modalRender';
 // import './js/modal-infa';
 import './sass/main.scss';
 // import './js/modalFromApi main';
+import './js/preloader';
