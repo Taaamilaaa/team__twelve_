@@ -37,23 +37,6 @@
   }
 }
 
-.circle-3 {
-  @media screen and (min-width: 768px) {
-    display: block;
-    margin-top: 2906px;
-    margin-left: 46px;
-    background: linear-gradient(#121212 48%, transparent 50%);
-  }
-  @media screen and (min-width: 1280px) {
-    display: block;
-    margin-top: 2308px;
-    margin-left: 47px;
-    height: 136px;
-    width: 136px;
-    background: linear-gradient(#121212 48%, transparent 50%);
-  }
-}
-
 @keyframes animate {
   25% {
     transform: scale(1.01);

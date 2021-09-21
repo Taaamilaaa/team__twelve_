@@ -45,6 +45,7 @@ body {
   .container-list {
     position: relative;
     bottom: 50px;
+    min-height: 2900px;
   }
 
   .container-before::before {
@@ -133,6 +134,7 @@ body {
 
   .container-list {
     bottom: 30px;
+    min-height: 2750px;
   }
   .container-before::before {
     content: '';
@@ -180,6 +182,7 @@ body {
     grid-row-gap: 60px;
 
     justify-content: center;
+    min-height: 1750px;
   }
 }
 
