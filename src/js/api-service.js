@@ -11,18 +11,14 @@ export default class ApiService {
         this.id = '';
     };
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     fetchApiStart() {
-        const searchParams = new URLSearchParams({
+        const params = new URLSearchParams({
             size: '20',
             page: this.page,
             sort: 'random',
             countryCode: 'ES'
         })
-        const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
+        const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${params}`;
         return axios.get(url);
 
     };

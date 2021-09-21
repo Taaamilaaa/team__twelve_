@@ -1,5 +1,5 @@
 import ApiService from './api-service';
-import startTemplate from '../templates/start-loading.hbs';
+import cardTemplate from '../templates/card-image.hbs';
 import Pagination from 'tui-pagination';
 
 
@@ -13,21 +13,23 @@ startRender()
 function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
-            if (typeof (res.data._embedded.attractions) === 'object') {
+            if (typeof (res.data._embedded.events) === 'object') {
+
                 removeEvents();
-                render(res.data._embedded.attractions);
+                render(res.data._embedded.events);
                 let data = res.data.page
                 if (data.totalElements >= 20) {
                     paginations(data);
                 } else paginations();
             }
+
         });
     } catch (error) {
 
     }
 };
 function render(event) {
-    refs.container.insertAdjacentHTML('beforeend', startTemplate(event));
+    refs.container.insertAdjacentHTML('beforeend', cardTemplate(event));
 }
 
 function removeEvents() {
