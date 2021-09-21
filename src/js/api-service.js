@@ -12,36 +12,36 @@ export default class ApiService {
     };
 
 
-  fetchApiStart() {
+    fetchApiStart() {
 
-    const searchParams = new URLSearchParams({
-      size: '20',
-      page: this.page,
-      source: "ticketmaster",
-      sort: 'relevance,desc',
-      classificationName: 'Classical'
-    })
-    const url = `${BASE_URL}attractions.json?&apikey=${API_KEY}&${searchParams}`;
-    return axios.get(url);
+        const searchParams = new URLSearchParams({
+            size: '20',
+            page: this.page,
+            source: "ticketmaster",
+            sort: 'relevance,desc',
+            classificationName: 'Classical'
+        })
+        const url = `${BASE_URL}attractions.json?&apikey=${API_KEY}&${searchParams}`;
+        return axios.get(url);
 
-  };
-  fetchApi() {
-    console.log(this.searchQuery);
-    console.log(this.countryCode);
-    console.log(this.page);
-    const searchParams = new URLSearchParams({
-      keyword: this.searchQuery,
-      size: '20',
-      countryCode: this.countryCode,
-      page: this.page,
-    })
+    };
+    fetchApi() {
+        console.log(this.searchQuery);
+        console.log(this.countryCode);
+        console.log(this.page);
+        const searchParams = new URLSearchParams({
+            keyword: this.searchQuery,
+            size: '20',
+            countryCode: this.countryCode,
+            page: this.page,
+        })
 
-    const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
-    return axios.get(url);
+        const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
+        return axios.get(url);
     };
 
-    fetchApiId() {     
-        const  id = this.id;
+    fetchApiId() {
+        const id = this.id;
 
         console.log(this.id);
         const url = `${BASE_URL}/events/${id}?apikey=${API_KEY}&locale=*`
@@ -80,3 +80,4 @@ export default class ApiService {
     incrementPage() {
         this.page += 1;
     }
+}
