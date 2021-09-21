@@ -6,6 +6,7 @@ const onWindowClick = document.querySelector('.container-list');
 const refs = {
     containerModal: document.querySelector('.modal'),
     modalOverlay: document.querySelector('.lightbox'),
+    moreAuthorBtn: document.querySelector('.button-form__inform')
     //     closModal: document.querySelector('.close-modal'),
     //     lightbox: document.querySelector('.lightbox'),
 };
@@ -30,7 +31,6 @@ async function apiServisesRenderId() {
                 // let data = res.data.page
                 // removeEvents();
                 renderEvents(res.data);
-
             }
         });
     } catch (error) {
@@ -43,3 +43,5 @@ function renderEvents(event) {
     refs.containerModal.insertAdjacentHTML('beforeend', cardModal(event))
 };
 // fetchApiId()
+refs.moreAuthorBtn.addEventListener('click', (e) => { console.log(e) })
+console.log(refs.moreAuthorBtn)

@@ -47,7 +47,7 @@ async function apiServisesRenderTui() {
                 removeEvents();
                 logicPagination(data);
                 renderEvents(res.data._embedded.events);
-                
+
             }
             // if (res.data.page.totalElements > 0) {
             //     Notify.success(`Hooray! We found ${res.data.page.totalElements} events`,

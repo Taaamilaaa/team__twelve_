@@ -2,14 +2,14 @@ import ApiService from './api-service';
 import cardTemplate from '../templates/card-image.hbs';
 import Pagination from 'tui-pagination';
 
-
 const apiService = new ApiService();
 
 const refs = {
     country: document.querySelector('.dropdown'),
-    container: document.querySelector('.container-list')
+    container: document.querySelector('.container-list'),
 };
 startRender()
+
 function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
@@ -25,17 +25,15 @@ function startRender() {
 
         });
     } catch (error) {
-
     }
+
 };
 function render(event) {
     refs.container.insertAdjacentHTML('beforeend', cardTemplate(event));
 }
-
 function removeEvents() {
     refs.container.innerHTML = ''
 }
-
 function paginations(data) {
     const options = {
         totalItems: data.totalElements,
