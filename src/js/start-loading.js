@@ -14,6 +14,7 @@ function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
             if (typeof (res.data._embedded.events) === 'object') {
+
                 removeEvents();
                 render(res.data._embedded.events);
                 let data = res.data.page
@@ -21,6 +22,7 @@ function startRender() {
                     paginations(data);
                 } else paginations();
             }
+
         });
     } catch (error) {
 

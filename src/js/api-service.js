@@ -12,6 +12,7 @@ export default class ApiService {
     };
 
 
+
     const searchParams = new URLSearchParams({
       size: '20',
       page: this.page,
@@ -22,15 +23,14 @@ export default class ApiService {
     return axios.get(url);
 
 
-
     fetchApiStart() {
-        const searchParams = new URLSearchParams({
+        const params = new URLSearchParams({
             size: '20',
             page: this.page,
             sort: 'random',
             countryCode: 'ES'
         })
-        const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
+        const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${params}`;
         return axios.get(url);
 
     };
