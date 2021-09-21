@@ -1,23 +1,19 @@
 const refs = {
   container: document.querySelector('.container-list'),
-  modalContainer: document.querySelector('.lightbox'),
+  modalOverlay: document.querySelector('.lightbox'),
   closModal: document.querySelector('.close-modal'),
   lightbox: document.querySelector('.lightbox'),
+  containerModal: document.querySelector('.modal'),
 };
 
-refs.container.addEventListener('click', imageContainerClick);
-function imageContainerClick(event) {
-  if (event.target.tagName !== 'IMG' && event.target.className !== 'container-before') {
-    return;
-  }
-  if (event.target.tagName === 'A') {
-    return;
-  }
-  refs.modalContainer.classList.add('is-open');
-}
-refs.closModal.addEventListener('click', closeModalClick);
-
 document.addEventListener('keydown', closeModalWindow);
+refs.container.addEventListener('click', imageContainerClick);
+refs.closModal.addEventListener('click', closeModalClick);
+refs.lightbox.addEventListener('click', closelightboxClick);
+
+function imageContainerClick() {
+  refs.modalOverlay.classList.add('is-open');
+}
 
 function closeModalWindow(event) {
   if (event.key === 'Escape') {
@@ -25,10 +21,9 @@ function closeModalWindow(event) {
   }
 }
 
-refs.lightbox.addEventListener('click', closelightboxClick);
-
 function closeModalClick() {
-  refs.modalContainer.classList.remove('is-open');
+  refs.modalOverlay.classList.remove('is-open');
+  removeEvents()
 }
 
 function closelightboxClick(event) {
@@ -37,3 +32,7 @@ function closelightboxClick(event) {
   }
   closeModalClick();
 }
+
+function removeEvents() {
+  refs.containerModal.innerHTML = ''
+};
