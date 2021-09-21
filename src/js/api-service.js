@@ -22,16 +22,15 @@ export default class ApiService {
     return axios.get(url);
 
 
-    fetchApiStart() {
 
+    fetchApiStart() {
         const searchParams = new URLSearchParams({
             size: '20',
             page: this.page,
-            source: "ticketmaster",
-            sort: 'relevance,desc',
-            classificationName: 'Classical'
+            sort: 'random',
+            countryCode: 'ES'
         })
-        const url = `${BASE_URL}attractions.json?&apikey=${API_KEY}&${searchParams}`;
+        const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${searchParams}`;
         return axios.get(url);
 
     };
