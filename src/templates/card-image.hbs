@@ -12,6 +12,7 @@
     {{/dates}}
         <a href="{{_embedded.venues.0.url}}" class="text-color-item text-link link"
             target="_blank">
+            {{#if _embedded.venues}}
             <p>
                 <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="img-vector">
                     <path
@@ -19,6 +20,7 @@
                         fill="white" />
                 </svg>{{_embedded.venues.0.name}}
             </p>
+            {{/if}}
         </a>
    
 </li>
