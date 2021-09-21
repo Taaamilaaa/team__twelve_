@@ -208,6 +208,7 @@
 }
 
 .size-description-title {
+  overflow: auto;
   width: 243px;
   @media screen and (min-width: 1280px) {
     width: 450px;
