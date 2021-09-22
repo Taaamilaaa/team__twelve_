@@ -172,6 +172,7 @@
   height: 40px;
   background: #4c00fe;
   border-radius: 5px;
+  border: none;
   color: #fff;
 
   margin-bottom: 20px;
@@ -188,8 +189,12 @@
 .button-form:hover,
 .button-form:focus {
   background: #2e009a;
+  -webkit-box-shadow: 0px 5px 10px 2px #dc56c693;
+  -moz-box-shadow: 0px 5px 10px 2px #dc56c693;
+  box-shadow: 0px 5px 10px 2px #dc56c693;
 
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-form__inform {
   width: 230px;
@@ -204,7 +209,8 @@
   cursor: pointer;
   color: #4c00fe;
 
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
     width: 255px;
@@ -213,8 +219,11 @@
 .button-form__inform:hover,
 .button-form__inform:focus {
   border: 1px solid #dc56c5;
-
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-box-shadow: 0px 5px 10px 2px #dc56c693;
+  -moz-box-shadow: 0px 5px 10px 2px #dc56c693;
+  box-shadow: 0px 5px 10px 2px #dc56c693;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .size-description-title {
