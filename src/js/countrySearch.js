@@ -27,37 +27,27 @@ function onSearch() {
     apiService.resetPage();
     apiServisesRenderTui();
 };
-
-
+async function apiServisesRenderTui() {
+    try {
+        await apiService.fetchApi().then(res => {
+            if (typeof (res.data._embedded.events) === 'object') {
+                let data = res.data.page
+                pagination(data);
+                removeEvents();
+                renderEvents(res.data._embedded.events);
+            }
+        });
+    } catch {
+        Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
+            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
+    }
+};
 function renderEvents(event) {
     refs.container.insertAdjacentHTML('beforeend', cardTemplate(event))
 };
 
 function removeEvents() {
     refs.container.innerHTML = ''
-};
-async function apiServisesRenderTui() {
-    try {
-        await apiService.fetchApi().then(res => {
-            if (typeof (res.data._embedded) === 'object') {
-                let data = res.data.page
-                pagination(data);
-                removeEvents();
-                logicPagination(data);
-                renderEvents(res.data._embedded.events);
-
-            }
-            if (res.data.page.totalElements === 0) {
-                Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
-                    { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
-            }
-
-        });
-    } catch (error) {
-        Notify.failure(`Ops! We couldn't found events. Please, try again`,
-            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
-
-    }
 };
 
 function pagination(data) {
@@ -95,20 +85,3 @@ function pagination(data) {
     });
 };
 
-function logicPagination(data) {
-    if (data.totalElements >= 12) {
-        visiblePagination();
-    } else
-        hiddenPagination();
-    return
-};
-function hiddenPagination() {
-    const paginationContainer = document.querySelector('#pagination');
-    paginationContainer.classList.remove('is-visible-tui');
-    paginationContainer.classList.add('is-hidden-tui');
-};
-function visiblePagination() {
-    const paginationContainer = document.querySelector('#pagination');
-    paginationContainer.classList.remove('is-hidden-tui');
-    paginationContainer.classList.add('is-visible-tui');
-};
