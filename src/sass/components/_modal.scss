@@ -231,14 +231,24 @@
 .close-modal {
   position: absolute;
   cursor: pointer;
-  top: 20px;
-  right: 20px;
+  z-index: 100;
+  top: -400px;
+  right: -286px;
   border: none;
   background-color: transparent;
-  @media screen and (min-width: 1280px) {
-    top: 30px;
-    right: 30px;
+  @media screen and (max-width: 767.99px) {
+    top: -444px;
+    right: -127px;
   }
+  @media screen and (min-width: 1280px) {
+    top: -495px;
+    right: -449px;
+  }
+}
+.modal-container--close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .svg-close {
