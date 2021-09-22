@@ -5,25 +5,36 @@
     <img class="img-modal_big" src="{{images.2.url}}" alt="team__twelve_" />
     <ul class="modal-container">
         <li class="modal__title-list">
-            <h3 class="modal__title">INFO</h3>
+            {{#if info}}
+            <h3 class="modal__title">INFO</h3>            
             <p class="modal__title-description size-description-title">{{info}}</p>
+            {{/if}}
         </li>
         <li class="modal__title-list description-size">
+            {{#if dates.start}}
             <h3 class="modal__title">WHEN</h3>
             <span class="modal__title-description">{{dates.start.localDate}}</span>
             <span class="modal__title-description">{{dates.start.localTime}} </span>
+            {{/if}}
         </li>
         <li class="modal__title-list description-size">
+            {{#if _embedded.venues}}
             <h3 class="modal__title">WHERE</h3>
+            {{/if}}
             <span class="modal__title-description">{{_embedded.venues.0.city.name}}, {{_embedded.venues.0.country.name}}</span>
             <span class="modal__title-description">{{_embedded.venues.0.name}}</span>
         </li>
         <li class="modal__title-list description-size">
+            {{#if name}}
             <h3 class="modal__title">WHO</h3>
             <span class="modal__title-description">{{name}}</span>
+            {{/if}}
         </li>
         <li class="modal__title-list">
+{{#if priceRanges}}
             <h3 class="modal__title">PRICES</h3>
+{{/if}}   
+            {{#if priceRanges.0.type}}
             <div class="button-block">
                 <span class="modal__title-description modal__title-list"><svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-svg">
                     <path d="M2.66668 0.833496L0 0.833496L0 16.8335H2.66668L2.66668 0.833496Z" fill="#0E0E0E" />
@@ -41,6 +52,9 @@
                     <button type="submit" class="button button-form">BUY TICKETS</button>
                 </form>
             </div>
+            {{/if}}
+
+            {{#if priceRanges.1.type}}
             <div class="button-block button-block_buy">
                 <span class="modal__title-description modal__title-list"><svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-svg">
                     <path d="M2.66668 0.833496L0 0.833496L0 16.8335H2.66668L2.66668 0.833496Z" fill="#0E0E0E" />
@@ -58,6 +72,7 @@
                     <button type="submit" class="button button-form button-form__null">BUY TICKETS</button>
                 </form>
             </div>
+            {{/if}}
         </li>
     </ul>
 </div>
