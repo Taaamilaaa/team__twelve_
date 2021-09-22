@@ -56,7 +56,7 @@ async function moreAuthorSearch() {
         });
     } catch {
         Notify.failure(`We couldn't found more events.`,
-            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
+            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 3000, });
     }
 };
 
