@@ -39,7 +39,7 @@ async function apiServisesRenderTui() {
         });
     } catch {
         Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
-            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
+            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 3000, });
     }
 };
 function renderEvents(event) {

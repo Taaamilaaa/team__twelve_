@@ -43,31 +43,25 @@ function renderEvents(event) {
 }
 
 async function moreAuthorSearch() {
-  apiService.query = nameEvent;
-  try {
-    await apiService.fetchApi().then(res => {
-      if (typeof res.data._embedded.events === 'object') {
-        removeEvents();
-        renderMoreEvents(res.data._embedded.events);
-        closeModalClick();
-        let data = res.data.page;
-        if (data.totalElements >= 20) {
-          paginations(data);
-        } else paginations();
-      }
-    });
-  } catch {
-    Notify.failure(`We couldn't found more events. This is a unique event`, {
-      width: '310px',
-      distance: '20px',
-      borderRadius: '10px',
-      fontFamily: 'Montserrat',
-      fontSize: '15px',
-      useGoogleFont: true,
-      timeout: 5000,
-    });
-  }
-}
+
+    apiService.query = nameEvent;
+    try {
+        await apiService.fetchApi().then(res => {
+            if (typeof (res.data._embedded.events) === 'object') {
+                removeEvents()
+                renderMoreEvents(res.data._embedded.events);
+                closeModalClick()
+                let data = res.data.page
+                if (data.totalElements >= 20) {
+                    paginations(data);
+                } else paginations();
+            }
+        });
+    } catch {
+        Notify.failure(`We couldn't found more events.`,
+            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 3000, });
+    }
+};
 
 
 function renderMoreEvents(event) {
