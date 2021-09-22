@@ -17,16 +17,15 @@ export default class ApiService {
             size: '20',
             page: this.page,
             sort: 'random',
-            countryCode: 'ES'
+            countryCode: 'CA',
+
         })
         const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${params}`;
         return axios.get(url);
 
     };
     fetchApi() {
-        console.log(this.searchQuery);
-        console.log(this.countryCode);
-        console.log(this.page);
+
         const searchParams = new URLSearchParams({
             keyword: this.searchQuery,
             size: '20',
@@ -41,7 +40,6 @@ export default class ApiService {
     fetchApiId() {
         const id = this.id;
 
-        console.log(this.id);
         const url = `${BASE_URL}/events/${id}?apikey=${API_KEY}&locale=*`
         return axios.get(url);
 

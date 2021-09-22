@@ -40,19 +40,13 @@ async function apiServisesRenderTui() {
     try {
         await apiService.fetchApi().then(res => {
             if (typeof (res.data._embedded) === 'object') {
-                console.log(res.data._embedded.events[0].id);
-                // console.log(res.data._embedded.events[0]._embedded.attractions[0].id);
                 let data = res.data.page
                 pagination(data);
                 removeEvents();
                 logicPagination(data);
                 renderEvents(res.data._embedded.events);
-                
+
             }
-            // if (res.data.page.totalElements > 0) {
-            //     Notify.success(`Hooray! We found ${res.data.page.totalElements} events`,
-            //         { useGoogleFont: true, timeout: 3000, width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px" });
-            // }
             if (res.data.page.totalElements === 0) {
                 Notify.failure(`Ops! We couldn't found events. Please, use new keyword or choose other сountry.`,
                     { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
@@ -60,13 +54,13 @@ async function apiServisesRenderTui() {
 
         });
     } catch (error) {
+        Notify.failure(`Ops! We couldn't found events. Please, try again`,
+            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 5000, });
 
-        console.dir(error.stack);
     }
 };
 
 function pagination(data) {
-    // console.log('in paginetion', data);
     const options = {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
@@ -95,9 +89,7 @@ function pagination(data) {
     };
     const pagination = new Pagination('.tui-pagination', options);
     pagination.on('afterMove', (event) => {
-        // console.log('in pagination.on', options);
         const currentPage = event.page;
-        // console.log(currentPage);
         apiService.Page = currentPage;
         apiServisesRenderTui();
     });
@@ -106,7 +98,6 @@ function pagination(data) {
 function logicPagination(data) {
     if (data.totalElements >= 12) {
         visiblePagination();
-
     } else
         hiddenPagination();
     return

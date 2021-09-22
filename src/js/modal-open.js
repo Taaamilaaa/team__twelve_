@@ -21,7 +21,7 @@ function closeModalWindow(event) {
   }
 }
 
-function closeModalClick() {
+export default function closeModalClick() {
   refs.modalOverlay.classList.remove('is-open');
   removeEvents()
 }

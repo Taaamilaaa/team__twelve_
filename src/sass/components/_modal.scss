@@ -242,13 +242,13 @@
   position: absolute;
   cursor: pointer;
   z-index: 100;
-  top: -400px;
-  right: -286px;
+  top: -448px;
+  right: -132px;
   border: none;
   background-color: transparent;
-  @media screen and (max-width: 767.99px) {
-    top: -444px;
-    right: -127px;
+  @media screen and (min-width: 768px) {
+    top: -404px;
+    right: -290px;
   }
   @media screen and (min-width: 1280px) {
     top: -495px;
