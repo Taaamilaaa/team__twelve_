@@ -1,21 +1,23 @@
 import cardModal from '../templates/card-modal.hbs';
 import ApiService from './api-service';
+import cardTemplate from '../templates/card-image.hbs';
+import closeModalClick from './modal-open'
+
 const apiService = new ApiService();
-const onWindowClick = document.querySelector('.container-list');
+
 
 const refs = {
     containerModal: document.querySelector('.modal'),
     modalOverlay: document.querySelector('.lightbox'),
-    //     closModal: document.querySelector('.close-modal'),
-    //     lightbox: document.querySelector('.lightbox'),
+    container: document.querySelector('.container-list'),
+    onWindowClick: document.querySelector('.container-list')
 };
 
-onWindowClick.addEventListener('click', onRenderCard);
-
+refs.onWindowClick.addEventListener('click', onRenderCard);
+let NAME = '';
 function onRenderCard(event) {
-    // console.log(refs.container);
+
     apiService.id = event.target.parentNode.id || event.target.parentNode.parentNode.id;
-    // apiService.id =  'K8vZ917Gbf0';
     apiServisesRenderId();
 }
 
@@ -23,23 +25,36 @@ function onRenderCard(event) {
 async function apiServisesRenderId() {
     try {
         await apiService.fetchApiId().then(res => {
-            // console.log(res.data);
-
+            NAME = res.data.name
             if (typeof (res.data) === 'object') {
-                console.log(res.data);
-                // let data = res.data.page
-                // removeEvents();
                 renderEvents(res.data);
-
             }
         });
     } catch (error) {
-        // console.dir(error.stack);
     }
 };
 
 
 function renderEvents(event) {
     refs.containerModal.insertAdjacentHTML('beforeend', cardModal(event))
+    moreAuthorBtn = document.querySelector('.button-form__inform')
+        .addEventListener('click', moreAuthorSearch)
 };
-// fetchApiId()
+
+function moreAuthorSearch() {
+    apiService.query = NAME;
+
+    apiService.fetchApi().then(res => {
+        removeEvents()
+        renderMoreEvents(res.data._embedded.events);
+        closeModalClick()
+    });
+
+}
+
+function renderMoreEvents(event) {
+    refs.container.insertAdjacentHTML('beforeend', cardTemplate(event))
+};
+function removeEvents() {
+    refs.container.innerHTML = ''
+};
