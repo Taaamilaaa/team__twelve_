@@ -12,6 +12,12 @@ refs.closModal.addEventListener('click', closeModalClick);
 refs.lightbox.addEventListener('click', closelightboxClick);
 
 function imageContainerClick() {
+  if (event.target.className === 'container-list' || event.target.className === 'container-items') {
+    return;
+  }
+  if (event.target.tagName === 'P') {
+    return;
+  }
   refs.modalOverlay.classList.add('is-open');
 }
 
@@ -23,7 +29,7 @@ function closeModalWindow(event) {
 
 export default function closeModalClick() {
   refs.modalOverlay.classList.remove('is-open');
-  removeEvents()
+  removeEvents();
 }
 
 function closelightboxClick(event) {
@@ -34,5 +40,5 @@ function closelightboxClick(event) {
 }
 
 function removeEvents() {
-  refs.containerModal.innerHTML = ''
-};
+  refs.containerModal.innerHTML = '';
+}
