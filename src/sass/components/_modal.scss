@@ -4,13 +4,13 @@
   top: 50%;
   left: 50%;
   width: 272px;
-  height: 915px;
+  height: 850px;
   transform: translate(-50%, -50%);
   background: #fff2fd;
   opacity: 1;
 
-  padding-top: 75px;
-  padding-bottom: 104px;
+  padding-top: 45px;
+  padding-bottom: 90px;
   padding-left: 12px;
   padding-right: 17px;
 
@@ -30,13 +30,13 @@
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 62px;
+    padding-top: 32px;
     padding-bottom: 62px;
     padding-left: 30px;
     padding-right: 30px;
 
-    width: 930px;
-    height: 1023px;
+    width: 900px;
+    height: 900px;
   }
 }
 .flex {
@@ -85,9 +85,9 @@
     margin-right: 30px;
   }
   @media screen and (min-width: 1280px) {
-    width: 360px;
-    height: 641px;
-    margin-right: 60px;
+    width: 350px;
+    height: 580px;
+    margin-right: 40px;
   }
 }
 
@@ -95,7 +95,7 @@
   margin-bottom: 10px;
 
   @media screen and (min-width: 1280px) {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 }
 
@@ -196,7 +196,7 @@
   border: none;
   color: #fff;
 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -204,7 +204,7 @@
     margin-right: 100%;
   }
   @media screen and (min-width: 1280px) {
-    margin-bottom: 31px;
+    margin-bottom: 20px;
   }
 }
 .button-form:hover,
@@ -218,7 +218,7 @@
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-form__inform {
-  width: 230px;
+  width: 220px;
   height: 40px;
   display: block;
   margin-left: auto;
@@ -272,7 +272,7 @@
   position: absolute;
   cursor: pointer;
   z-index: 100;
-  top: -448px;
+  top: -418px;
   right: -132px;
   border: none;
   background-color: transparent;
@@ -281,7 +281,7 @@
     right: -290px;
   }
   @media screen and (min-width: 1280px) {
-    top: -495px;
+    top: -435px;
     right: -449px;
   }
 }
@@ -320,7 +320,7 @@
   @media screen and (min-width: 1280px) {
     width: 132px;
     height: 132px;
-    margin-bottom: 41px;
+    margin-bottom: 31px;
   }
 }
 .button-form__null {
@@ -359,7 +359,7 @@
 .container-modal {
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     justify-content: start;
     margin-bottom: 43px;
