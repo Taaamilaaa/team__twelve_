@@ -69,6 +69,7 @@ async function moreAuthorSearch() {
   }
 }
 
+
 function renderMoreEvents(event) {
   refs.container.insertAdjacentHTML('beforeend', cardTemplate(event));
 }
