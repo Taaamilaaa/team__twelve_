@@ -6,10 +6,7 @@ const refs = {
   containerListModal: document.querySelector('.container-list'),
 };
 refs.containerListModal.addEventListener('click', openModalInfo);
-function openModalInfo(event) {
-  if (event.target.tagName !== 'IMG') {
-    return;
-  }
+function openModalInfo() {
   apiService.fetchApi().then(city => {
     refs.containerModal.insertAdjacentHTML('beforeend', cardModal(city.data._embedded.events));
   });

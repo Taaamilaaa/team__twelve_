@@ -12,7 +12,6 @@ refs.closModal.addEventListener('click', closeModalClick);
 refs.lightbox.addEventListener('click', closelightboxClick);
 
 function imageContainerClick(event) {
-  console.log(event);
   if (event.target.className === 'container-list' || event.target.className === 'container-items') {
     return;
   }
