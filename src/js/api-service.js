@@ -14,7 +14,7 @@ export default class ApiService {
 
     fetchApiStart() {
         const params = new URLSearchParams({
-            size: '20',
+            size: '24',
             page: this.page,
             sort: 'random',
             countryCode: 'ES',
@@ -28,7 +28,7 @@ export default class ApiService {
 
         const searchParams = new URLSearchParams({
             keyword: this.searchQuery,
-            size: '20',
+            size: '24',
             countryCode: this.countryCode,
             page: this.page,
         })
