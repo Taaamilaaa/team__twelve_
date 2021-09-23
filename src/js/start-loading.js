@@ -14,15 +14,10 @@ function startRender() {
     try {
         apiService.fetchApiStart().then(res => {
             if (typeof (res.data._embedded.events) === 'object') {
-
                 removeEvents();
                 render(res.data._embedded.events);
-                let data = res.data.page
-                if (data.totalElements >= 20) {
-                    paginations(data);
-                } else paginations();
+                paginations(res.data.page);
             }
-
         });
     } catch (error) {
 
@@ -41,7 +36,7 @@ function paginations(data) {
         totalItems: data.totalElements,
         itemsPerPage: data.size,
         visiblePages: 5,
-        page: (data.number || 1),
+        page: data.number,
         centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
@@ -65,10 +60,8 @@ function paginations(data) {
     };
     const pagination = new Pagination('.tui-pagination', options);
     pagination.on('afterMove', (event) => {
-        console.log('in pagination.on', options);
-        const currentPage = event.page;
-        console.log(currentPage);
-        apiService.Page = currentPage;
+        apiService.Page = event.page;
+
         startRender();
     });
 }

@@ -7,7 +7,7 @@ export default class ApiService {
     constructor() {
         this.searchQuery = '';
         this.countryCode = '';
-        this.page = 1;
+        this.page = 0;
         this.id = '';
     };
 
@@ -17,7 +17,7 @@ export default class ApiService {
             size: '20',
             page: this.page,
             sort: 'random',
-            countryCode: 'CA',
+            countryCode: 'ES',
 
         })
         const url = `${BASE_URL}events.json?&apikey=${API_KEY}&${params}`;
@@ -71,7 +71,7 @@ export default class ApiService {
         this.id = newid;
     }
     resetPage() {
-        this.page = 1;
+        this.page = 0;
     }
     incrementPage() {
         this.page += 1;
