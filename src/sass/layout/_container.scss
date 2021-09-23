@@ -45,7 +45,7 @@ body {
   .container-list {
     position: relative;
     bottom: 50px;
-    min-height: 2900px;
+    max-height: 2900px;
   }
 
   .container-before::before {
