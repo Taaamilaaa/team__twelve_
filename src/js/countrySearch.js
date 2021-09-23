@@ -79,8 +79,7 @@ function pagination(data) {
     };
     const pagination = new Pagination('.tui-pagination', options);
     pagination.on('afterMove', (event) => {
-        const currentPage = event.page;
-        apiService.Page = currentPage;
+        apiService.Page = event.page;
         apiServisesRenderTui();
     });
 };

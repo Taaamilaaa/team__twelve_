@@ -21,6 +21,7 @@ function onRenderCard(event) {
     return;
   }
   apiService.id = event.target.parentNode.id || event.target.parentNode.parentNode.id;
+
   apiServisesRenderId();
 }
 
@@ -32,7 +33,7 @@ async function apiServisesRenderId() {
         renderEvents(res.data);
       }
     });
-  } catch (error) {}
+  } catch (error) { }
 }
 
 function renderEvents(event) {
@@ -44,25 +45,21 @@ function renderEvents(event) {
 
 async function moreAuthorSearch() {
 
-    apiService.query = nameEvent;
-    try {
-        await apiService.fetchApi().then(res => {
-            if (typeof (res.data._embedded.events) === 'object') {
-                removeEvents()
-                renderMoreEvents(res.data._embedded.events);
-                closeModalClick()
-                let data = res.data.page
-                if (data.totalElements >= 20) {
-                    paginations(data);
-                } else paginations();
-            }
-        });
-    } catch {
-        Notify.failure(`We couldn't found more events.`,
-            { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 3000, });
-    }
+  apiService.query = nameEvent;
+  try {
+    await apiService.fetchApi().then(res => {
+      if (typeof (res.data._embedded.events) === 'object') {
+        removeEvents()
+        renderMoreEvents(res.data._embedded.events);
+        closeModalClick()
+        paginations(res.data.page);
+      }
+    });
+  } catch {
+    Notify.failure(`We couldn't found more events.`,
+      { width: "310px", distance: "20px", borderRadius: "10px", fontFamily: "Montserrat", fontSize: "15px", useGoogleFont: true, timeout: 3000, });
+  }
 };
-
 
 function renderMoreEvents(event) {
   refs.container.insertAdjacentHTML('beforeend', cardTemplate(event));
@@ -76,7 +73,7 @@ function paginations(data) {
     totalItems: data.totalElements,
     itemsPerPage: data.size,
     visiblePages: 5,
-    page: data.number || 1,
+    page: data.number,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
@@ -99,10 +96,7 @@ function paginations(data) {
   };
   const pagination = new Pagination('.tui-pagination', options);
   pagination.on('afterMove', event => {
-    console.log('in pagination.on', options);
-    const currentPage = event.page;
-    console.log(currentPage);
-    apiService.Page = currentPage;
+    apiService.Page = event.page;
     moreAuthorSearch();
   });
 }
