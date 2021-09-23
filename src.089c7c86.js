@@ -99,4 +99,4 @@ window.onload=function(){let e=document.getElementById("preloader");e.classList.
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./js/api-service"),require("./js/start-loading"),require("./js/countrySearch"),require("./js/scroll-top-btn"),require("./js/team"),require("./js/modal-open"),require("./js/modalRender"),require("./sass/main.scss"),require("./js/preloader");
 },{"./js/api-service":"hC31","./js/start-loading":"DRt5","./js/countrySearch":"WmIM","./js/scroll-top-btn":"Gm5E","./js/team":"ZxpD","./js/modal-open":"Ja3G","./js/modalRender":"afQl","./sass/main.scss":"clu1","./js/preloader":"BeZ8"}]},{},["Focm"], null)
-//# sourceMappingURL=/team__twelve_/src.c0c8c971.js.map
+//# sourceMappingURL=/team__twelve_/src.089c7c86.js.map
