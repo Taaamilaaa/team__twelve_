@@ -9,7 +9,7 @@
   background: #fff2fd;
   display: block;
 
-  padding-top: 25px;
+  padding-top: 15px;
   padding-bottom: 90px;
   padding-left: 12px;
   padding-right: 17px;
@@ -18,7 +18,7 @@
 
   border-radius: 150px 0px;
   @media screen and (min-width: 768px) {
-    padding-top: 30px;
+    padding-top: 20px;
     padding-bottom: 56px;
     padding-left: 60px;
     padding-right: 17px;
@@ -127,7 +127,7 @@
   max-width: 243px;
   @media screen and (min-width: 768px) {
     text-align: left;
-    max-width: 232px;
+    max-width: 270px;
     margin-left: 0;
   }
   @media screen and (min-width: 1280px) {
@@ -145,10 +145,7 @@
   }
 }
 .modal-overflow-price {
-  overflow: auto;
-  max-height: 20px;
   @media screen and (min-width: 1280px) {
-    overflow: hidden;
     max-height: 23px;
     max-width: 430px;
   }
